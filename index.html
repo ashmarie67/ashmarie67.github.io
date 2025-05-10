@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +28,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         
         /* Top Navigation Banner */
@@ -65,6 +65,12 @@
         .main-nav {
             display: flex;
             gap: 1.5rem;
+            position: relative;
+        }
+        
+        .main-nav > li {
+            list-style: none;
+            position: relative;
         }
         
         .main-nav a {
@@ -74,6 +80,8 @@
             transition: color 0.3s;
             padding: 0.5rem 0;
             position: relative;
+            display: flex;
+            align-items: center;
         }
         
         .main-nav a:hover {
@@ -93,6 +101,70 @@
         
         .main-nav a:hover::after {
             width: 100%;
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            z-index: 1001;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .dropdown-menu a::after {
+            display: none;
+        }
+        
+        /* Departments dropdown */
+        .departments-dropdown {
+            position: relative;
+        }
+        
+        .departments-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            z-index: 1001;
+            padding: 0.5rem 0;
+        }
+        
+        .departments-dropdown:hover .departments-dropdown-menu {
+            display: block;
         }
         
         /* Login Portal */
@@ -302,20 +374,145 @@
         .leadership .icon-container i { color: var(--secondary-5); }
         .leadership .tag { background-color: rgba(44, 62, 80, 0.1); color: var(--secondary-5); }
         
+        /* Mobile Banner */
+        .mobile-banner {
+            display: none;
+            background-color: var(--secondary-5);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-banner-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .mobile-banner-title span {
+            color: var(--primary-accent);
+        }
+        
+        .mobile-menu-toggle, .mobile-login {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Mobile Side Menu */
+        .mobile-side-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 280px;
+            height: 100%;
+            background-color: white;
+            z-index: 1100;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-side-menu.active {
+            left: 0;
+        }
+        
+        .mobile-side-menu-header {
+            background-color: var(--secondary-5);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-mobile-menu {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            padding: 1rem;
+        }
+        
+        .mobile-nav li {
+            list-style: none;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            display: block;
+            padding: 0.75rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-dropdown-menu {
+            display: none;
+            padding-left: 1rem;
+        }
+        
+        .mobile-dropdown.active .mobile-dropdown-menu {
+            display: block;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1050;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
         @media (max-width: 768px) {
+            .top-banner {
+                display: none;
+            }
+            
+            .mobile-banner {
+                display: flex;
+            }
+            
             .banner-container {
-                flex-direction: column;
                 padding: 1rem;
             }
             
             .main-nav {
-                margin: 1rem 0;
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
             }
             
             .login-portal {
-                margin-top: 0.5rem;
+                display: none;
             }
             
             .programs-grid {
@@ -324,23 +521,128 @@
             
             .header h1 {
                 font-size: 2rem;
+                margin-top: 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Navigation Banner -->
+    <!-- Mobile Banner (visible only on mobile) -->
+    <div class="mobile-banner">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-banner-title">Celebrity<span>University</span></div>
+        <button class="mobile-login" id="mobileLoginBtn">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+    
+    <!-- Mobile Side Menu -->
+    <div class="mobile-side-menu" id="mobileSideMenu">
+        <div class="mobile-side-menu-header">
+            <div>Menu</div>
+            <button class="close-mobile-menu" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav">
+            <li><a href="#">Home</a></li>
+            
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle" id="mobileProgramsToggle">
+                    Academic Programs <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
+                    <li><a href="#">All Programs</a></li>
+                    <li><a href="#" class="departments-link">All Departments</a></li>
+                    <li><a href="#">Undergraduate</a></li>
+                    <li><a href="#">Graduate</a></li>
+                    <li><a href="#">Certificate Programs</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle" id="mobileMediaToggle">
+                    Media <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu" id="mobileMediaMenu">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Podcasts</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle" id="mobileNewsToggle">
+                    News <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu" id="mobileNewsMenu">
+                    <li><a href="#">University News</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Desktop Navigation Banner -->
     <div class="top-banner">
         <div class="banner-container">
             <a href="#" class="nav-logo">Celebrity<span>University</span></a>
             
-            <nav class="main-nav">
-                <a href="#">Home</a>
-                <a href="#">Academic Programs</a>
-                <a href="#">Media</a>
-                <a href="#">News</a>
-                <a href="#">Contact Us</a>
-            </nav>
+            <ul class="main-nav">
+                <li><a href="#">Home</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Academic Programs <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">All Programs</a></li>
+                        <li class="departments-dropdown">
+                            <a href="#" class="departments-link">All Departments</a>
+                            <ul class="departments-dropdown-menu">
+                                <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
+                                <li><a href="business.html" target="_blank">Business</a></li>
+                                <li><a href="communication.html" target="_blank">Communication</a></li>
+                                <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                                <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Undergraduate</a></li>
+                        <li><a href="#">Graduate</a></li>
+                        <li><a href="#">Certificate Programs</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Media <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Podcasts</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">News <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">University News</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">Contact Us</a></li>
+            </ul>
             
             <div class="login-portal">
                 <a href="login.html" class="login-btn">
@@ -583,13 +885,20 @@
             
             // Login functionality
             const loginBtn = document.querySelector('.login-btn');
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
             const loginPage = document.getElementById('loginPage');
             const closeLogin = document.getElementById('closeLogin');
             const loginForm = document.getElementById('loginForm');
             
-            // For demo purposes, we'll show the login page when clicking the login button
-            // In a real implementation, this would link to a separate login page
-            loginBtn.addEventListener('click', function(e) {
+            // Show login page when clicking login buttons
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginPage.style.display = 'block';
+                });
+            }
+            
+            mobileLoginBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 loginPage.style.display = 'block';
             });
@@ -609,6 +918,50 @@
                 if (e.target === loginPage) {
                     loginPage.style.display = 'none';
                 }
+            });
+            
+            // Mobile menu functionality
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            const mobileSideMenu = document.getElementById('mobileSideMenu');
+            const overlay = document.getElementById('overlay');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileSideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            closeMobileMenu.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            overlay.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Mobile dropdown toggles
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
+            
+            mobileDropdowns.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+                });
+            });
+            
+            // Make "All Departments" link work as requested
+            const departmentsLinks = document.querySelectorAll('.departments-link');
+            
+            departmentsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // On mobile, prevent default to allow dropdown to work
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                    }
+                });
             });
         });
     </script>
