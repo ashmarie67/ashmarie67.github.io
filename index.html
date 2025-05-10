@@ -1,0 +1,617 @@
+Update code. Make the headers a drop down menu. Under the Academic Programs section give an option to see all and then options for each department
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity University Academic Programs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-accent: #8feff2;  /* Main teal color */
+            --primary-dark: #00a8b5;    /* Darker teal for contrast */
+            --primary-light: #d6f9fa;   /* Very light teal for backgrounds */
+            --secondary-1: #8E44AD;     /* Purple */
+            --secondary-2: #E74C3C;     /* Red */
+            --secondary-3: #3498DB;     /* Blue */
+            --secondary-4: #F39C12;     /* Orange */
+            --secondary-5: #2C3E50;     /* Dark blue */
+            --text-dark: #2C3E50;
+            --text-medium: #5D6D7E;
+            --text-light: #7F8C8D;
+            --bg-light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Top Navigation Banner */
+        .top-banner {
+            background-color: var(--secondary-5);
+            color: white;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-logo span {
+            color: var(--primary-accent);
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .main-nav a:hover {
+            color: var(--primary-accent);
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-accent);
+            transition: width 0.3s;
+        }
+        
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Login Portal */
+        .login-portal {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .login-btn {
+            background-color: var(--primary-accent);
+            color: var(--secondary-5);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-accent);
+            border-radius: 2px;
+        }
+        
+        .header p {
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-accent);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover {
+            background-color: var(--primary-accent);
+            color: white;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-accent);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-content {
+            padding: 1.75rem;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            background-color: var(--primary-light);
+        }
+        
+        .icon-container i {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        .card-description {
+            color: var(--text-medium);
+            margin-bottom: 1.75rem;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+        
+        .tag {
+            padding: 0.35rem 0.85rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--primary-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .card-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: var(--secondary-5);
+        }
+        
+        .card-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Program-specific accent colors */
+        .pa .icon-container { background-color: rgba(142, 68, 173, 0.1); }
+        .pa .icon-container i { color: var(--secondary-1); }
+        .pa .tag { background-color: rgba(142, 68, 173, 0.1); color: var(--secondary-1); }
+        
+        .cad .icon-container { background-color: rgba(231, 76, 60, 0.1); }
+        .cad .icon-container i { color: var(--secondary-2); }
+        .cad .tag { background-color: rgba(231, 76, 60, 0.1); color: var(--secondary-2); }
+        
+        .business .icon-container { background-color: rgba(52, 152, 219, 0.1); }
+        .business .icon-container i { color: var(--secondary-3); }
+        .business .tag { background-color: rgba(52, 152, 219, 0.1); color: var(--secondary-3); }
+        
+        .comm .icon-container { background-color: rgba(22, 160, 133, 0.1); }
+        .comm .icon-container i { color: var(--secondary-4); }
+        .comm .tag { background-color: rgba(22, 160, 133, 0.1); color: var(--secondary-4); }
+        
+        .leadership .icon-container { background-color: rgba(44, 62, 80, 0.1); }
+        .leadership .icon-container i { color: var(--secondary-5); }
+        .leadership .tag { background-color: rgba(44, 62, 80, 0.1); color: var(--secondary-5); }
+        
+        @media (max-width: 768px) {
+            .banner-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .main-nav {
+                margin: 1rem 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .login-portal {
+                margin-top: 0.5rem;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Banner -->
+    <div class="top-banner">
+        <div class="banner-container">
+            <a href="#" class="nav-logo">Celebrity<span>University</span></a>
+            
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#">Academic Programs</a>
+                <a href="#">Media</a>
+                <a href="#">News</a>
+                <a href="#">Contact Us</a>
+            </nav>
+            
+            <div class="login-portal">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Celebrity University Academic Programs</h1>
+            <p>Explore our innovative programs designed to foster creativity, leadership, and professional excellence in various industries.</p>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All Programs</button>
+            <button class="filter-btn" data-category="arts">Arts & Media</button>
+            <button class="filter-btn" data-category="business">Business</button>
+            <button class="filter-btn" data-category="communication">Communication</button>
+            <button class="filter-btn" data-category="leadership">Leadership</button>
+        </div>
+        
+        <div class="programs-grid">
+            <!-- Performing Arts and Media -->
+            <div class="program-card pa" data-categories="arts media">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <h3 class="card-title">Performing Arts and Media</h3>
+                    </div>
+                    <p class="card-description">
+                        Develop your artistic voice through theater, film, and digital media production with industry-standard facilities.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Performance</span>
+                        <span class="tag">Media Production</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Creative Arts and Design -->
+            <div class="program-card cad" data-categories="arts design">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="card-title">Creative Arts and Design</h3>
+                    </div>
+                    <p class="card-description">
+                        Master visual storytelling through graphic design, illustration, and digital arts with hands-on studio experience.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Visual Arts</span>
+                        <span class="tag">Design Thinking</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Business and Entrepreneurship -->
+            <div class="program-card business" data-categories="business entrepreneurship">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="card-title">Business and Entrepreneurship</h3>
+                    </div>
+                    <p class="card-description">
+                        Launch your creative venture with business fundamentals, innovation strategies, and startup incubation support.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Startup Culture</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Communication and PR -->
+            <div class="program-card comm" data-categories="communication media">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="card-title">Communication and PR</h3>
+                    </div>
+                    <p class="card-description">
+                        Craft compelling narratives and strategic campaigns for brands, organizations, and media platforms.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Public Relations</span>
+                        <span class="tag">Digital Media</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Lifestyle and Wellness -->
+            <div class="program-card wellness" data-categories="wellness health">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="card-title">Lifestyle and Wellness</h3>
+                    </div>
+                    <p class="card-description">
+                        Explore holistic approaches to health, nutrition, and wellbeing in personal and professional settings.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Holistic Health</span>
+                        <span class="tag">Wellbeing</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Leadership and Social Impact -->
+            <div class="program-card leadership" data-categories="leadership social">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="card-title">Leadership and Social Impact</h3>
+                    </div>
+                    <p class="card-description">
+                        Develop leadership skills to drive positive change in communities, organizations, and global initiatives.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Social Change</span>
+                        <span class="tag">Community Leadership</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page (would normally be a separate HTML file) -->
+    <div id="loginPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; color: white; padding: 2rem;">
+        <div style="max-width: 500px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; color: var(--text-dark); position: relative;">
+            <button id="closeLogin" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Celebrity University Login</h2>
+            
+            <!-- News Section -->
+            <div style="background-color: var(--primary-light); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                <h3 style="margin-top: 0; color: var(--primary-dark);">University News</h3>
+                <ul style="padding-left: 1.2rem;">
+                    <li>Spring semester registration now open</li>
+                    <li>Campus renovations complete - new media lab available</li>
+                    <li>Upcoming alumni networking event on March 15th</li>
+                </ul>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" style="margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1rem;">
+                    <label for="loginUsername" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Username or Email</label>
+                    <input type="text" id="loginUsername" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Password</label>
+                    <input type="password" id="loginPassword" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <input type="checkbox" id="rememberMe" style="margin-right: 0.5rem;">
+                    <label for="rememberMe">Remember my username</label>
+                </div>
+                
+                <button type="submit" style="width: 100%; padding: 0.75rem; background-color: var(--primary-dark); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">
+                    Login
+                </button>
+            </form>
+            
+            <!-- Help Links -->
+            <div style="text-align: center; font-size: 0.9rem;">
+                <p style="margin-bottom: 0.5rem;">
+                    <a href="#" style="color: var(--primary-dark); text-decoration: none;">Forgot username or password?</a>
+                </p>
+                <p style="margin-top: 0;">
+                    New student? <a href="#" style="color: var(--primary-dark); text-decoration: none;">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const programCards = document.querySelectorAll('.program-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    // Filter programs
+                    programCards.forEach(card => {
+                        if (category === 'all' || card.dataset.categories.includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Login functionality
+            const loginBtn = document.querySelector('.login-btn');
+            const loginPage = document.getElementById('loginPage');
+            const closeLogin = document.getElementById('closeLogin');
+            const loginForm = document.getElementById('loginForm');
+            
+            // For demo purposes, we'll show the login page when clicking the login button
+            // In a real implementation, this would link to a separate login page
+            loginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginPage.style.display = 'block';
+            });
+            
+            closeLogin.addEventListener('click', function() {
+                loginPage.style.display = 'none';
+            });
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login successful! (This is a demo)');
+                loginPage.style.display = 'none';
+            });
+            
+            // Close login page when clicking outside
+            loginPage.addEventListener('click', function(e) {
+                if (e.target === loginPage) {
+                    loginPage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
