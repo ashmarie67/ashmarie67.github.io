@@ -8,61 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Mobile Banner -->
-    <div class="mobile-banner">
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="mobile-banner-title">Celebrity<span>University</span></div>
-        <button class="mobile-login" id="mobileLoginBtn">
-            <i class="fas fa-user"></i>
-        </button>
-    </div>
-    
-    <!-- Mobile Side Menu -->
-    <div class="mobile-side-menu" id="mobileSideMenu">
-        <div class="mobile-side-menu-header">
-            <div>Menu</div>
-            <button class="close-mobile-menu" id="closeMobileMenu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul class="mobile-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="arts-media.html">Arts & Media</a></li>
-            <li><a href="business.html">Business</a></li>
-            <li><a href="communication.html">Communication</a></li>
-            <li><a href="leadership.html">Leadership</a></li>
-            <li><a href="health-wellness.html">Health & Wellness</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </div>
-    
-    <!-- Overlay for mobile menu -->
-    <div class="overlay" id="overlay"></div>
-    
-    <!-- Desktop Navigation Banner -->
-    <div class="top-banner">
-        <div class="banner-container">
-            <a href="index.html" class="nav-logo">Celebrity<span>University</span></a>
-            
-            <ul class="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="arts-media.html">Arts & Media</a></li>
-                <li><a href="business.html" style="color: var(--primary-accent);">Business</a></li>
-                <li><a href="communication.html">Communication</a></li>
-                <li><a href="leadership.html">Leadership</a></li>
-                <li><a href="health-wellness.html">Health & Wellness</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            
-            <div class="login-portal">
-                <a href="login.html" class="login-btn">
-                    <i class="fas fa-user"></i> Login
-                </a>
-            </div>
-        </div>
-    </div>
+   <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
 
     <div class="container">
         <div class="department-header">
@@ -174,7 +121,84 @@
     </div>
 
     <script>
-        // Same JavaScript as arts-media.html
+        <script>
+        // Load navigation
+        fetch('../navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-container').innerHTML = data;
+                
+                // Initialize navigation functionality
+                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                const closeMobileMenu = document.getElementById('closeMobileMenu');
+                const mobileSideMenu = document.getElementById('mobileSideMenu');
+                const overlay = document.getElementById('overlay');
+                const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+                const loginPage = document.getElementById('loginPage');
+                const closeLogin = document.getElementById('closeLogin');
+                const loginForm = document.getElementById('loginForm');
+                
+                // Mobile menu functionality
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.addEventListener('click', function() {
+                        mobileSideMenu.classList.add('active');
+                        overlay.classList.add('active');
+                    });
+                }
+                
+                if (closeMobileMenu) {
+                    closeMobileMenu.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }
+                if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });}
+                
+                // Mobile dropdown toggles
+                const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
+                
+                mobileDropdowns.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    });
+                });
+                
+                // Login functionality
+                if (mobileLoginBtn) {
+                    mobileLoginBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (loginPage) loginPage.style.display = 'block';
+                    });
+                }
+                
+                if (closeLogin) {
+                    closeLogin.addEventListener('click', function() {
+                        if (loginPage) loginPage.style.display = 'none';
+                    });
+                }
+                
+                if (loginForm) {
+                    loginForm.addEventListener('submit', function(e) {
+                        e.preventDefault(); alert('Login successful! (This is a demo)');
+                        if (loginPage) loginPage.style.display = 'none';});
+                }
+                
+                // Close login page when clicking outside
+                if (loginPage) {
+                    loginPage.addEventListener('click', function(e) {
+                        if (e.target === loginPage) {
+                            loginPage.style.display = 'none';
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading navigation:', error));
     </script>
 </body>
 </html>
