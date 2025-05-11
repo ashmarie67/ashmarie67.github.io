@@ -1,13 +1,14 @@
-  <!-- Mobile Banner (visible only on mobile) -->
-    <div class="mobile-banner">
-        <a href="/login.html" class="mobile-login">
-  <i class="fas fa-user"></i>
-</a>
-        <div class="mobile-banner-title">Celebrity<span>University</span></div>
-        <button class="mobile-login" id="mobileLoginBtn">
-            <i class="fas fa-user"></i>
-        </button>
-    </div>
+<!-- Mobile Banner (visible only on mobile) -->
+<div class="mobile-banner">
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-banner-title">Celebrity<span>University</span></div>
+    <!-- Fixed single login link -->
+    <a href="login.html" class="mobile-login">
+        <i class="fas fa-user"></i>
+    </a>
+</div>
     
     <!-- Mobile Side Menu -->
     <div class="mobile-side-menu" id="mobileSideMenu">
@@ -119,7 +120,12 @@
                 </li> 
                 <li><a href="#">Contact Us</a></li>
             </ul>
-            
+            <!-- Fixed Login Portal -->
+        <div class="login-portal">
+            <a href="login.html" class="login-btn">
+                <i class="fas fa-user"></i> Login
+            </a>
         </div>
     </div>
-  </nav>
+</div>
+        
