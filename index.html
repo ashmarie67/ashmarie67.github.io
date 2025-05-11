@@ -527,6 +527,20 @@
             .container {
                 padding: 1rem;
             }
+
+            /* Center the login portal on mobile */
+            #loginPage {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            #loginPage > div {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
         }
     </style>
 </head>
@@ -559,10 +573,14 @@
                 </a>
                 <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
                     <li><a href="#">All Programs</a></li>
-                    <li><a href="#" class="departments-link">All Departments</a></li>
                     <li><a href="#">Undergraduate</a></li>
                     <li><a href="#">Graduate</a></li>
                     <li><a href="#">Certificate Programs</a></li>
+                    <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
+                    <li><a href="business.html" target="_blank">Business</a></li>
+                    <li><a href="communication.html" target="_blank">Communication</a></li>
+                    <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                    <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
                 </ul>
             </li>
             
@@ -608,7 +626,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">All Programs</a></li>
                         <li class="departments-dropdown">
-                            <a href="#" class="departments-link">All Departments</a>
+                            <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
                             <ul class="departments-dropdown-menu">
                                 <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
                                 <li><a href="business.html" target="_blank">Business</a></li>
@@ -952,15 +970,13 @@
                 });
             });
             
-            // Make "All Departments" link work as requested
-            const departmentsLinks = document.querySelectorAll('.departments-link');
+            // Make "All Programs" link work as requested
+            const allProgramsLinks = document.querySelectorAll('.dropdown-menu > li:first-child a');
             
-            departmentsLinks.forEach(link => {
+            allProgramsLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // On mobile, prevent default to allow dropdown to work
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                    }
+                    e.preventDefault();
+                    window.location.href = window.location.href.split('#')[0];
                 });
             });
         });
