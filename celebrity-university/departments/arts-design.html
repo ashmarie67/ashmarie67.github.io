@@ -8,7 +8,8 @@
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Reuse the same navigation from index.html -->
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
     
     <div class="container">
         <div class="department-header" style="background: linear-gradient(135deg, var(--secondary-1), #6c3483);">
@@ -47,5 +48,86 @@
     </div>
 
     <!-- Reuse the same footer from index.html -->
+     <script>
+        // Load navigation
+        fetch('../navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-container').innerHTML = data;
+                
+                // Initialize navigation functionality
+                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                const closeMobileMenu = document.getElementById('closeMobileMenu');
+                const mobileSideMenu = document.getElementById('mobileSideMenu');
+                const overlay = document.getElementById('overlay');
+                const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+                const loginPage = document.getElementById('loginPage');
+                const closeLogin = document.getElementById('closeLogin');
+                const loginForm = document.getElementById('loginForm');
+                
+                // Mobile menu functionality
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.addEventListener('click', function() {
+                        mobileSideMenu.classList.add('active');
+                        overlay.classList.add('active');
+                    });
+                }
+                
+                if (closeMobileMenu) {
+                    closeMobileMenu.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }
+                if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }
+                
+                // Mobile dropdown toggles
+                const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
+                
+                mobileDropdowns.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
+                    });
+                });
+                
+                // Login functionality
+                if (mobileLoginBtn) {
+                    mobileLoginBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (loginPage) loginPage.style.display = 'block';
+                    });
+                }
+                
+                if (closeLogin) {
+                    closeLogin.addEventListener('click', function() {
+                        if (loginPage) loginPage.style.display = 'none';
+                    });
+                }
+                
+                if (loginForm) {
+                    loginForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        alert('Login successful! (This is a demo)');
+                        if (loginPage) loginPage.style.display = 'none';});
+                }
+                
+                // Close login page when clicking outside
+                if (loginPage) {
+                    loginPage.addEventListener('click', function(e) {
+                        if (e.target === loginPage) {
+                            loginPage.style.display = 'none';
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading navigation:', error));
+    </script>
 </body>
 </html>
