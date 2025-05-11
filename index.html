@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-accent: #8feff2;
-            --primary-dark: #00a8b5;
-            --primary-light: #d6f9fa;
-            --secondary-1: #8E44AD;
-            --secondary-2: #E74C3C;
-            --secondary-3: #3498DB;
-            --secondary-4: #F39C12;
-            --secondary-5: #2C3E50;
+            --primary-accent: #8feff2;  /* Main teal color */
+            --primary-dark: #00a8b5;    /* Darker teal for contrast */
+            --primary-light: #d6f9fa;   /* Very light teal for backgrounds */
+            --secondary-1: #8E44AD;     /* Purple */
+            --secondary-2: #E74C3C;     /* Red */
+            --secondary-3: #3498DB;     /* Blue */
+            --secondary-4: #F39C12;     /* Orange */
+            --secondary-5: #2C3E50;     /* Dark blue */
             --text-dark: #2C3E50;
             --text-medium: #5D6D7E;
             --text-light: #7F8C8D;
@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
         
-        /* Top Navigation */
+        /* Top Navigation Banner */
         .top-banner {
             background-color: var(--secondary-5);
             color: white;
@@ -494,29 +494,6 @@
             display: block;
         }
         
-        /* Login Page Styles */
-        #loginPage {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 2000;
-            color: white;
-        }
-        
-        .login-container {
-            max-width: 500px;
-            margin: 2rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            color: var(--text-dark);
-            position: relative;
-        }
-        
         @media (max-width: 768px) {
             .top-banner {
                 display: none;
@@ -553,38 +530,16 @@
 
             /* Center the login portal on mobile */
             #loginPage {
-                display: flex;
+                display: flex !important;
                 align-items: center;
                 justify-content: center;
                 padding: 1rem;
             }
 
-            .login-container {
+            #loginPage > div {
                 width: 100%;
                 max-width: 100%;
                 margin: 0;
-            }
-            
-            /* Mobile-specific adjustments */
-            .card-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .icon-container {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .filter-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .filter-btn {
-                width: 100%;
-                max-width: 300px;
-                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -621,11 +576,11 @@
                     <li><a href="#">Undergraduate</a></li>
                     <li><a href="#">Graduate</a></li>
                     <li><a href="#">Certificate Programs</a></li>
-                    <li><a href="arts-media.html">Arts & Media</a></li>
-                    <li><a href="business.html">Business</a></li>
-                    <li><a href="communication.html">Communication</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="health-wellness.html">Health & Wellness</a></li>
+                    <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
+                    <li><a href="business.html" target="_blank">Business</a></li>
+                    <li><a href="communication.html" target="_blank">Communication</a></li>
+                    <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                    <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
                 </ul>
             </li>
             
@@ -673,11 +628,11 @@
                         <li class="departments-dropdown">
                             <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
                             <ul class="departments-dropdown-menu">
-                                <li><a href="arts-media.html">Arts & Media</a></li>
-                                <li><a href="business.html">Business</a></li>
-                                <li><a href="communication.html">Communication</a></li>
-                                <li><a href="leadership.html">Leadership</a></li>
-                                <li><a href="health-wellness.html">Health & Wellness</a></li>
+                                <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
+                                <li><a href="business.html" target="_blank">Business</a></li>
+                                <li><a href="communication.html" target="_blank">Communication</a></li>
+                                <li><a href="leadership.html" target="_blank">Leadership</a></li>
+                                <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Undergraduate</a></li>
@@ -708,7 +663,7 @@
             </ul>
             
             <div class="login-portal">
-                <a href="#" class="login-btn" id="desktopLoginBtn">
+                <a href="login.html" class="login-btn">
                     <i class="fas fa-user"></i> Login
                 </a>
             </div>
@@ -730,49 +685,193 @@
         </div>
         
         <div class="programs-grid">
-            <!-- Program cards remain unchanged -->
-            <!-- ... -->
+            <!-- Performing Arts and Media -->
+            <div class="program-card pa" data-categories="arts media">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <h3 class="card-title">Performing Arts and Media</h3>
+                    </div>
+                    <p class="card-description">
+                        Develop your artistic voice through theater, film, and digital media production with industry-standard facilities.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Performance</span>
+                        <span class="tag">Media Production</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Creative Arts and Design -->
+            <div class="program-card cad" data-categories="arts design">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="card-title">Creative Arts and Design</h3>
+                    </div>
+                    <p class="card-description">
+                        Master visual storytelling through graphic design, illustration, and digital arts with hands-on studio experience.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Visual Arts</span>
+                        <span class="tag">Design Thinking</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Business and Entrepreneurship -->
+            <div class="program-card business" data-categories="business entrepreneurship">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="card-title">Business and Entrepreneurship</h3>
+                    </div>
+                    <p class="card-description">
+                        Launch your creative venture with business fundamentals, innovation strategies, and startup incubation support.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Startup Culture</span>
+                        <span class="tag">Innovation</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Communication and PR -->
+            <div class="program-card comm" data-categories="communication media">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="card-title">Communication and PR</h3>
+                    </div>
+                    <p class="card-description">
+                        Craft compelling narratives and strategic campaigns for brands, organizations, and media platforms.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Public Relations</span>
+                        <span class="tag">Digital Media</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Lifestyle and Wellness -->
+            <div class="program-card wellness" data-categories="wellness health">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="card-title">Lifestyle and Wellness</h3>
+                    </div>
+                    <p class="card-description">
+                        Explore holistic approaches to health, nutrition, and wellbeing in personal and professional settings.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Holistic Health</span>
+                        <span class="tag">Wellbeing</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Leadership and Social Impact -->
+            <div class="program-card leadership" data-categories="leadership social">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="card-title">Leadership and Social Impact</h3>
+                    </div>
+                    <p class="card-description">
+                        Develop leadership skills to drive positive change in communities, organizations, and global initiatives.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Social Change</span>
+                        <span class="tag">Community Leadership</span>
+                    </div>
+                    <a href="#" class="card-link">
+                        Explore program
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Login Page -->
-    <div id="loginPage">
-        <div class="login-container">
-            <button id="closeLogin">&times;</button>
+    <!-- Login Page (would normally be a separate HTML file) -->
+    <div id="loginPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; color: white; padding: 2rem;">
+        <div style="max-width: 500px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; color: var(--text-dark); position: relative;">
+            <button id="closeLogin" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
             
-            <h2>Celebrity University Login</h2>
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-dark);">Celebrity University Login</h2>
             
-            <div class="news-section">
-                <h3>University News</h3>
-                <ul>
+            <!-- News Section -->
+            <div style="background-color: var(--primary-light); padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                <h3 style="margin-top: 0; color: var(--primary-dark);">University News</h3>
+                <ul style="padding-left: 1.2rem;">
                     <li>Spring semester registration now open</li>
                     <li>Campus renovations complete - new media lab available</li>
                     <li>Upcoming alumni networking event on March 15th</li>
                 </ul>
             </div>
             
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginUsername">Username or Email</label>
-                    <input type="text" id="loginUsername" required>
+            <!-- Login Form -->
+            <form id="loginForm" style="margin-bottom: 1.5rem;">
+                <div style="margin-bottom: 1rem;">
+                    <label for="loginUsername" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Username or Email</label>
+                    <input type="text" id="loginUsername" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
                 </div>
                 
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
+                <div style="margin-bottom: 1rem;">
+                    <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Password</label>
+                    <input type="password" id="loginPassword" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
                 </div>
                 
-                <div class="remember-me">
-                    <input type="checkbox" id="rememberMe">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <input type="checkbox" id="rememberMe" style="margin-right: 0.5rem;">
                     <label for="rememberMe">Remember my username</label>
                 </div>
                 
-                <button type="submit">Login</button>
+                <button type="submit" style="width: 100%; padding: 0.75rem; background-color: var(--primary-dark); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">
+                    Login
+                </button>
             </form>
             
-            <div class="help-links">
-                <a href="#">Forgot username or password?</a>
-                <a href="#">Create an account</a>
+            <!-- Help Links -->
+            <div style="text-align: center; font-size: 0.9rem;">
+                <p style="margin-bottom: 0.5rem;">
+                    <a href="#" style="color: var(--primary-dark); text-decoration: none;">Forgot username or password?</a>
+                </p>
+                <p style="margin-top: 0;">
+                    New student? <a href="#" style="color: var(--primary-dark); text-decoration: none;">Create an account</a>
+                </p>
             </div>
         </div>
     </div>
@@ -785,11 +884,13 @@
             
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
+                    // Update active button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
                     const category = this.dataset.category;
                     
+                    // Filter programs
                     programCards.forEach(card => {
                         if (category === 'all' || card.dataset.categories.includes(category)) {
                             card.style.display = 'block';
@@ -800,27 +901,25 @@
                 });
             });
             
-            // Login functionality - fixed to not auto-open on mobile
-            const desktopLoginBtn = document.getElementById('desktopLoginBtn');
+            // Login functionality
+            const loginBtn = document.querySelector('.login-btn');
             const mobileLoginBtn = document.getElementById('mobileLoginBtn');
             const loginPage = document.getElementById('loginPage');
             const closeLogin = document.getElementById('closeLogin');
             const loginForm = document.getElementById('loginForm');
             
-            // Only show login when explicitly clicked
-            if (desktopLoginBtn) {
-                desktopLoginBtn.addEventListener('click', function(e) {
+            // Show login page when clicking login buttons
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     loginPage.style.display = 'block';
                 });
             }
             
-            if (mobileLoginBtn) {
-                mobileLoginBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    loginPage.style.display = 'flex'; // Use flex for better mobile centering
-                });
-            }
+            mobileLoginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginPage.style.display = 'block';
+            });
             
             closeLogin.addEventListener('click', function() {
                 loginPage.style.display = 'none';
@@ -832,6 +931,7 @@
                 loginPage.style.display = 'none';
             });
             
+            // Close login page when clicking outside
             loginPage.addEventListener('click', function(e) {
                 if (e.target === loginPage) {
                     loginPage.style.display = 'none';
@@ -844,26 +944,20 @@
             const mobileSideMenu = document.getElementById('mobileSideMenu');
             const overlay = document.getElementById('overlay');
             
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileSideMenu.classList.add('active');
-                    overlay.classList.add('active');
-                });
-            }
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileSideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
             
-            if (closeMobileMenu) {
-                closeMobileMenu.addEventListener('click', function() {
-                    mobileSideMenu.classList.remove('active');
-                    overlay.classList.remove('active');
-                });
-            }
+            closeMobileMenu.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
             
-            if (overlay) {
-                overlay.addEventListener('click', function() {
-                    mobileSideMenu.classList.remove('active');
-                    overlay.classList.remove('active');
-                });
-            }
+            overlay.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
             
             // Mobile dropdown toggles
             const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
@@ -873,6 +967,16 @@
                     e.preventDefault();
                     const parent = this.parentElement;
                     parent.classList.toggle('active');
+                });
+            });
+            
+            // Make "All Programs" link work as requested
+            const allProgramsLinks = document.querySelectorAll('.dropdown-menu > li:first-child a');
+            
+            allProgramsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = window.location.href.split('#')[0];
                 });
             });
         });
