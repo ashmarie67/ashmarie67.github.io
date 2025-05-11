@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts & Media | Celebrity University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse the same CSS from main page */
+        :root {
+            --primary-accent: #8feff2;
+            --primary-dark: #00a8b5;
+            --primary-light: #d6f9fa;
+            --secondary-1: #8E44AD;     /* Purple for Arts & Media */
+            --secondary-2: #E74C3C;
+            --secondary-3: #3498DB;
+            --secondary-4: #F39C12;
+            --secondary-5: #2C3E50;
+            --text-dark: #2C3E50;
+            --text-medium: #5D6D7E;
+            --text-light: #7F8C8D;
+            --bg-light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Reuse all the same styles from main page */
+        /* ... (copy all CSS styles from main page) ... */
+        
+        /* Department-specific styles */
+        .department-header {
+            background: linear-gradient(135deg, var(--secondary-1), #6c3483);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .department-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .department-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .program-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .highlight-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--secondary-1);
+        }
+        
+        .faculty-section {
+            background-color: var(--primary-light);
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faculty-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .faculty-info {
+            padding: 1.5rem;
+        }
+        
+        .faculty-name {
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary-1);
+        }
+        
+        .faculty-title {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Banner -->
+    <div class="mobile-banner">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-banner-title">Celebrity<span>University</span></div>
+        <button class="mobile-login" id="mobileLoginBtn">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+    
+    <!-- Mobile Side Menu -->
+    <div class="mobile-side-menu" id="mobileSideMenu">
+        <div class="mobile-side-menu-header">
+            <div>Menu</div>
+            <button class="close-mobile-menu" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="arts-media.html">Arts & Media</a></li>
+            <li><a href="business.html">Business</a></li>
+            <li><a href="communication.html">Communication</a></li>
+            <li><a href="leadership.html">Leadership</a></li>
+            <li><a href="health-wellness.html">Health & Wellness</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Desktop Navigation Banner -->
+    <div class="top-banner">
+        <div class="banner-container">
+            <a href="index.html" class="nav-logo">Celebrity<span>University</span></a>
+            
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="arts-media.html" style="color: var(--primary-accent);">Arts & Media</a></li>
+                <li><a href="business.html">Business</a></li>
+                <li><a href="communication.html">Communication</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="health-wellness.html">Health & Wellness</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            
+            <div class="login-portal">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="department-header">
+            <h1>Arts & Media Department</h1>
+            <p>Where creativity meets innovation. Our programs prepare students for careers in visual arts, performing arts, media production, and digital design.</p>
+        </div>
+        
+        <div class="program-highlights">
+            <div class="highlight-card">
+                <h3><i class="fas fa-theater-masks" style="color: var(--secondary-1);"></i> Performing Arts</h3>
+                <p>Develop your artistic voice through theater, dance, and music performance with world-class facilities and instructors.</p>
+            </div>
+            <div class="highlight-card">
+                <h3><i class="fas fa-film" style="color: var(--secondary-1);"></i> Film & Media Production</h3>
+                <p>Master the art of storytelling through film, television, and digital media with hands-on production experience.</p>
+            </div>
+            <div class="highlight-card">
+                <h3><i class="fas fa-palette" style="color: var(--secondary-1);"></i> Visual Arts & Design</h3>
+                <p>Explore painting, sculpture, graphic design, and digital arts in our state-of-the-art studios.</p>
+            </div>
+        </div>
+        
+        <div>
+            <h2 style="text-align: center; margin-bottom: 2rem;">About Our Department</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem auto; text-align: center;">
+                The Arts & Media Department at Celebrity University is a vibrant community of artists, performers, and media professionals dedicated to pushing creative boundaries. Our programs combine traditional arts education with cutting-edge technology and industry connections.
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--secondary-1);">15+</div>
+                    <div>Degree Programs</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--secondary-1);">120</div>
+                    <div>Industry Partners</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--secondary-1);">90%</div>
+                    <div>Graduation Rate</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faculty-section">
+            <h2 style="text-align: center;">Featured Faculty</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
+                Learn from award-winning artists, performers, and media professionals with extensive industry experience.
+            </p>
+            
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-img" style="background-image: url('https://source.unsplash.com/random/400x300/?portrait,artist');"></div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Elena Rodriguez</h3>
+                        <div class="faculty-title">Chair, Visual Arts</div>
+                        <p>Former gallery director with exhibitions in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-img" style="background-image: url('https://source.unsplash.com/random/400x300/?portrait,filmmaker');"></div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Prof. James Chen</h3>
+                        <div class="faculty-title">Director, Film Studies</div>
+                        <p>Emmy-winning documentary filmmaker.</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <div class="faculty-img" style="background-image: url('https://source.unsplash.com/random/400x300/?portrait,musician');"></div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Sarah Johnson</h3>
+                        <div class="faculty-title">Head of Performing Arts</div>
+                        <p>Broadway performer and vocal coach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2>Upcoming Events</h2>
+            <div style="display: inline-block; text-align: left; max-width: 600px; margin-top: 1rem;">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; background-color: white; border-radius: 8px;">
+                    <div style="background-color: var(--secondary-1); color: white; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 1rem; text-align: center;">
+                        <div style="font-weight: bold;">OCT</div>
+                        <div>15</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: bold;">Annual Student Art Exhibition</div>
+                        <div>Opening reception for our student showcase</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; margin-bottom: 1rem; padding: 1rem; background-color: white; border-radius: 8px;">
+                    <div style="background-color: var(--secondary-1); color: white; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 1rem; text-align: center;">
+                        <div style="font-weight: bold;">NOV</div>
+                        <div>3</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: bold;">Guest Lecture: Digital Media Trends</div>
+                        <div>With industry leader Maria Gonzalez</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; color: white; padding: 2rem;">
+        <!-- Same login form as main page -->
+    </div>
+
+    <script>
+        // Same JavaScript as main page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            const mobileSideMenu = document.getElementById('mobileSideMenu');
+            const overlay = document.getElementById('overlay');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileSideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+            
+            closeMobileMenu.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            overlay.addEventListener('click', function() {
+                mobileSideMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // Login functionality
+            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+            const loginPage = document.getElementById('loginPage');
+            const closeLogin = document.getElementById('closeLogin');
+            
+            mobileLoginBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginPage.style.display = 'block';
+            });
+            
+            closeLogin.addEventListener('click', function() {
+                loginPage.style.display = 'none';
+            });
+            
+            loginPage.addEventListener('click', function(e) {
+                if (e.target === loginPage) {
+                    loginPage.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
