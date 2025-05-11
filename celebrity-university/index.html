@@ -9,138 +9,9 @@
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Mobile Banner (visible only on mobile) -->
-    <div class="mobile-banner">
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="mobile-banner-title">Celebrity<span>University</span></div>
-        <button class="mobile-login" id="mobileLoginBtn">
-            <i class="fas fa-user"></i>
-        </button>
-    </div>
+     <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
     
-    <!-- Mobile Side Menu -->
-    <div class="mobile-side-menu" id="mobileSideMenu">
-        <div class="mobile-side-menu-header">
-            <div>Menu</div>
-            <button class="close-mobile-menu" id="closeMobileMenu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul class="mobile-nav">
-            <li><a href="index.html">Home</a></li>
-            
-            <li class="mobile-dropdown">
-                <a href="#" class="mobile-dropdown-toggle" id="mobileProgramsToggle">
-                    Academic Programs <i class="fas fa-chevron-down"></i>
-                </a>
-                <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
-                    <li><a href="#">All Programs</a></li>
-                    <li class="departments-dropdown">
-                            <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
-                            <ul class="departments-dropdown-menu">
-                                <li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
-                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
-                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
-                                <li><a href="departments/communication.html">Communications & PR</a></li>
-                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
-                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
-                            </ul>
-                         </li> 
-                    <li><a href="#">Undergraduate</a></li>
-                    <li><a href="#">Graduate</a></li>
-                    <li><a href="#">Certificate Programs</a></li>
-                </ul>
-            </li>
-            
-            <li class="mobile-dropdown">
-                <a href="#" class="mobile-dropdown-toggle" id="mobileMediaToggle">
-                    Media <i class="fas fa-chevron-down"></i>
-                </a>
-                <ul class="mobile-dropdown-menu" id="mobileMediaMenu">
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Videos</a></li>
-                    <li><a href="#">Podcasts</a></li>
-                </ul>
-            </li>
-            
-            <li class="mobile-dropdown">
-                <a href="#" class="mobile-dropdown-toggle" id="mobileNewsToggle">
-                    News <i class="fas fa-chevron-down"></i>
-                </a>
-                <ul class="mobile-dropdown-menu" id="mobileNewsMenu">
-                    <li><a href="#">University News</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Press Releases</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </div>
-    
-    <!-- Overlay for mobile menu -->
-    <div class="overlay" id="overlay"></div>
-    
-    <!-- Desktop Navigation Banner -->
-    <div class="top-banner">
-        <div class="banner-container">
-            <a href="#" class="nav-logo">Celebrity<span>University</span></a>
-            
-            <ul class="main-nav">
-                <li><a href="index.html">Home</a></li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Academic Programs <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">All Programs</a></li>
-                        <li class="departments-dropdown">
-                            <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
-                            <ul class="departments-dropdown-menu">
-                                <li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
-                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
-                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
-                                <li><a href="departments/communication.html">Communications & PR</a></li>
-                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
-                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Undergraduate</a></li>
-                        <li><a href="#">Graduate</a></li>
-                        <li><a href="#">Certificate Programs</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Media <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Videos</a></li>
-                        <li><a href="#">Podcasts</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">News <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">University News</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Press Releases</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            
-            <div class="login-portal">
-                <a href="login.html" class="login-btn">
-                    <i class="fas fa-user"></i> Login
-                </a>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
         <div class="header">
             <h1>Celebrity University Academic Programs</h1>
@@ -312,145 +183,87 @@
                     <li>Upcoming alumni networking event on March 15th</li>
                 </ul>
             </div>
-            
-            <!-- Login Form -->
-            <form id="loginForm" style="margin-bottom: 1.5rem;">
-                <div style="margin-bottom: 1rem;">
-                    <label for="loginUsername" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Username or Email</label>
-                    <input type="text" id="loginUsername" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-                </div>
-                
-                <div style="margin-bottom: 1rem;">
-                    <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Password</label>
-                    <input type="password" id="loginPassword" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
-                </div>
-                
-                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                    <input type="checkbox" id="rememberMe" style="margin-right: 0.5rem;">
-                    <label for="rememberMe">Remember my username</label>
-                </div>
-                
-                <button type="submit" style="width: 100%; padding: 0.75rem; background-color: var(--primary-dark); color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">
-                    Login
-                </button>
-            </form>
-            
-            <!-- Help Links -->
-            <div style="text-align: center; font-size: 0.9rem;">
-                <p style="margin-bottom: 0.5rem;">
-                    <a href="#" style="color: var(--primary-dark); text-decoration: none;">Forgot username or password?</a>
-                </p>
-                <p style="margin-top: 0;">
-                    New student? <a href="#" style="color: var(--primary-dark); text-decoration: none;">Create an account</a>
-                </p>
-            </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Filter functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const programCards = document.querySelectorAll('.program-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const category = this.dataset.category;
-                    
-                    // Filter programs
-                    programCards.forEach(card => {
-                        if (category === 'all' || card.dataset.categories.includes(category)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+        // Load navigation
+        fetch('../navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-container').innerHTML = data;
+                
+                // Initialize navigation functionality
+                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                const closeMobileMenu = document.getElementById('closeMobileMenu');
+                const mobileSideMenu = document.getElementById('mobileSideMenu');
+                const overlay = document.getElementById('overlay');
+                const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+                const loginPage = document.getElementById('loginPage');
+                const closeLogin = document.getElementById('closeLogin');
+                const loginForm = document.getElementById('loginForm');
+                
+                // Mobile menu functionality
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.addEventListener('click', function() {
+                        mobileSideMenu.classList.add('active');
+                        overlay.classList.add('active');
+                    });
+                }
+                
+                if (closeMobileMenu) {
+                    closeMobileMenu.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        mobileSideMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+                }
+                
+                // Mobile dropdown toggles
+                const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
+                
+                mobileDropdowns.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const parent = this.parentElement;
+                        parent.classList.toggle('active');
                     });
                 });
-            });
-            
-            // Login functionality
-            const loginBtn = document.querySelector('.login-btn');
-            const mobileLoginBtn = document.getElementById('mobileLoginBtn');
-            const loginPage = document.getElementById('loginPage');
-            const closeLogin = document.getElementById('closeLogin');
-            const loginForm = document.getElementById('loginForm');
-            
-            // Show login page when clicking login buttons
-            if (loginBtn) {
-                loginBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    loginPage.style.display = 'block';
-                });
-            }
-            
-            mobileLoginBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                loginPage.style.display = 'block';
-            });
-            
-            closeLogin.addEventListener('click', function() {
-                loginPage.style.display = 'none';
-            });
-            
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Login successful! (This is a demo)');
-                loginPage.style.display = 'none';
-            });
-            
-            // Close login page when clicking outside
-            loginPage.addEventListener('click', function(e) {
-                if (e.target === loginPage) {
-                    loginPage.style.display = 'none';
+                
+                // Login functionality
+                if (mobileLoginBtn) {
+                    mobileLoginBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if (loginPage) loginPage.style.display = 'block';
+                    });
                 }
-            });
-            
-            // Mobile menu functionality
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const closeMobileMenu = document.getElementById('closeMobileMenu');
-            const mobileSideMenu = document.getElementById('mobileSideMenu');
-            const overlay = document.getElementById('overlay');
-            
-            mobileMenuToggle.addEventListener('click', function() {
-                mobileSideMenu.classList.add('active');
-                overlay.classList.add('active');
-            });
-            
-            closeMobileMenu.addEventListener('click', function() {
-                mobileSideMenu.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-            
-            overlay.addEventListener('click', function() {
-                mobileSideMenu.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-            
-            // Mobile dropdown toggles
-            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
-            
-            mobileDropdowns.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const parent = this.parentElement;
-                    parent.classList.toggle('active');
-                });
-            });
-            
-            // Make "All Programs" link work as requested
-            const allProgramsLinks = document.querySelectorAll('.dropdown-menu > li:first-child a');
-            
-            allProgramsLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = window.location.href.split('#')[0];
-                });
-            });
-        });
+                
+                if (closeLogin) {
+                    closeLogin.addEventListener('click', function() {
+                        if (loginPage) loginPage.style.display = 'none';
+                    });
+                }
+                if (loginForm) {
+                    loginForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        alert('Login successful! (This is a demo)');
+                        if (loginPage) loginPage.style.display = 'none';});
+                }
+                
+                // Close login page when clicking outside
+                if (loginPage) {
+                    loginPage.addEventListener('click', function(e) {
+                        if (e.target === loginPage) {
+                            loginPage.style.display = 'none';
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading navigation:', error));
     </script>
 </body>
 </html>
