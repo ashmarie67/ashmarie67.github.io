@@ -18,22 +18,28 @@
             </button>
         </div>
         <ul class="mobile-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropdown-toggle" id="mobileProgramsToggle">
                     Academic Programs <i class="fas fa-chevron-down"></i>
                 </a>
-                <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
+              <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
                     <li><a href="#">All Programs</a></li>
+                    <li class="departments-dropdown">
+                            <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
+                            <ul class="departments-dropdown-menu">
+                                <li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
+                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
+                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
+                                <li><a href="departments/communication.html">Communications & PR</a></li>
+                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
+                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
+                            </ul>
+                         </li> 
                     <li><a href="#">Undergraduate</a></li>
                     <li><a href="#">Graduate</a></li>
                     <li><a href="#">Certificate Programs</a></li>
-                    <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
-                    <li><a href="business.html" target="_blank">Business</a></li>
-                    <li><a href="communication.html" target="_blank">Communication</a></li>
-                    <li><a href="leadership.html" target="_blank">Leadership</a></li>
-                    <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
                 </ul>
             </li>
             
@@ -46,8 +52,7 @@
                     <li><a href="#">Videos</a></li>
                     <li><a href="#">Podcasts</a></li>
                 </ul>
-            </li>
-            
+            </li>     
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropdown-toggle" id="mobileNewsToggle">
                     News <i class="fas fa-chevron-down"></i>
@@ -66,14 +71,13 @@
     <!-- Overlay for mobile menu -->
     <div class="overlay" id="overlay"></div>
     
-   <!-- Desktop Nav -->
-<nav class="top-banner">
+    <!-- Desktop Navigation Banner -->
     <div class="top-banner">
         <div class="banner-container">
             <a href="#" class="nav-logo">Celebrity<span>University</span></a>
             
             <ul class="main-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Academic Programs <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
@@ -81,12 +85,12 @@
                         <li><a href="#">All Programs</a></li>
                         <li class="departments-dropdown">
                             <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
-                            <ul class="departments-dropdown-menu">
-                                <li><a href="arts-media.html" target="_blank">Arts & Media</a></li>
-                                <li><a href="business.html" target="_blank">Business</a></li>
-                                <li><a href="communication.html" target="_blank">Communication</a></li>
-                                <li><a href="leadership.html" target="_blank">Leadership</a></li>
-                                <li><a href="health-wellness.html" target="_blank">Health & Wellness</a></li>
+                            <ul class="departments-dropdown-menu"><li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
+                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
+                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
+                                <li><a href="departments/communication.html">Communications & PR</a></li>
+                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
+                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Undergraduate</a></li>
@@ -111,8 +115,7 @@
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Press Releases</a></li>
                     </ul>
-                </li>
-                
+                </li> 
                 <li><a href="#">Contact Us</a></li>
             </ul>
             
@@ -123,4 +126,19 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Celebrity University Academic Programs</h1>
+            <p>Explore our innovative programs designed to foster creativity, leadership, and professional excellence in various industries.</p>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All Programs</button>
+            <button class="filter-btn" data-category="arts">Performing Arts & Media</button>
+            <button class="filter-btn" data-category="arts">Creative Arts & Design</button
+            <button class="filter-btn" data-category="business">Business & Entrepreneurship</button>
+            <button class="filter-btn" data-category="communication">Communication & PR</button>
+            <button class="filter-btn" data-category="leadership">Leadership & Social Impact</button>
+        </div>
   </nav>
