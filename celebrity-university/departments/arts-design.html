@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation will be loaded here -->
-    <div id="navigation-container"></div>
+    <!-- Navigation Container (with error fallback) -->
+<div id="navigation-container">
+  <!-- This will be replaced by JavaScript -->
+  <div style="background: #f0f0f0; padding: 10px; text-align: center;">
+    Loading navigation... 
+    <noscript>Enable JavaScript for navigation or <a href="/">go home</a></noscript>
+  </div>
+</div>
 
     <div class="container">
         <div class="department-header">
@@ -113,7 +119,7 @@
             </div>
         </div>
     </div>
-    <script>
+   <script>
   // ====== Load Navigation ====== //
   function loadNavigation() {
     const navContainer = document.getElementById('navigation-container');
@@ -148,8 +154,7 @@
           <a href="/login.html" class="login-btn">Login</a>
         </div>
       `;
-    });
-  }
+    });}
 
   // ====== Initialize Navigation ====== //
   function initNavigation() {
@@ -184,7 +189,6 @@
       });
     });
   }
-
   // Start loading navigation
   loadNavigation();
 </script>
