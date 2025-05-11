@@ -37,3 +37,132 @@ body {
 }
 
 /* ... (continue with all shared styles) ... */
+
+/* Mobile Base Styles (applies to all screens) */
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Centering all text and block elements */
+.mobile-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive Typography */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8rem !important;
+    margin: 0.5em 0 !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .top-banner {
+    padding: 10px 0;
+  }
+  
+  .main-nav {
+    display: none;
+  }
+  
+  .mobile-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .mobile-menu-toggle, .mobile-login {
+    font-size: 1.5rem;
+  }
+}
+
+/* Card Adjustments */
+@media (max-width: 768px) {
+  .program-card {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .icon-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Form Elements */
+@media (max-width: 768px) {
+  input, select, textarea, button {
+    width: 100% !important;
+    max-width: 300px;
+    margin: 0 auto 15px;
+    display: block;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Department Page Specific */
+@media (max-width: 768px) {
+  .department-header {
+    padding: 2rem 15px;
+  }
+  
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .program-highlights {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .highlight-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Login Modal Adjustments */
+@media (max-width: 768px) {
+  #loginPage > div {
+    width: 90% !important;
+    padding: 1rem !important;
+  }
+  
+  .login-btn {
+    width: 100%;
+  }
+}
