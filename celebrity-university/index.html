@@ -9,8 +9,14 @@
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-     <!-- Navigation will be loaded here -->
-    <div id="navigation-container"></div>
+     <!-- Navigation Container (with error fallback) -->
+<div id="navigation-container">
+  <!-- This will be replaced by JavaScript -->
+  <div style="background: #f0f0f0; padding: 10px; text-align: center;">
+    Loading navigation... 
+    <noscript>Enable JavaScript for navigation or <a href="/">go home</a></noscript>
+  </div>
+</div>
     
     <div class="container">
         <div class="header">
@@ -167,84 +173,56 @@
         </div>
     </div>
 
-    <script>
-        // Load navigation
-        fetch('../navigation.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navigation-container').innerHTML = data;
-                
-                // Initialize navigation functionality
-                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-                const closeMobileMenu = document.getElementById('closeMobileMenu');
-                const mobileSideMenu = document.getElementById('mobileSideMenu');
-                const overlay = document.getElementById('overlay');
-                const mobileLoginBtn = document.getElementById('mobileLoginBtn');
-                const loginPage = document.getElementById('loginPage');
-                const closeLogin = document.getElementById('closeLogin');
-                const loginForm = document.getElementById('loginForm');
-                
-                // Mobile menu functionality
-                if (mobileMenuToggle) {
-                    mobileMenuToggle.addEventListener('click', function() {
-                        mobileSideMenu.classList.add('active');
-                        overlay.classList.add('active');
-                    });
-                }
-                
-                if (closeMobileMenu) {
-                    closeMobileMenu.addEventListener('click', function() {
-                        mobileSideMenu.classList.remove('active');
-                        overlay.classList.remove('active');
-                    });
-                }if (overlay) {
-                    overlay.addEventListener('click', function() {
-                        mobileSideMenu.classList.remove('active');
-                        overlay.classList.remove('active');
-                    });
-                }
-                
-                // Mobile dropdown toggles
-                const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
-                
-                mobileDropdowns.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const parent = this.parentElement;
-                        parent.classList.toggle('active');
-                    });
-                });
-                
-                // Login functionality
-                if (mobileLoginBtn) {
-                    mobileLoginBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        if (loginPage) loginPage.style.display = 'block';
-                    });
-                }
-                
-                if (closeLogin) {
-                    closeLogin.addEventListener('click', function() {
-                        if (loginPage) loginPage.style.display = 'none';
-                    });
-                }
-                if (loginForm) {
-                    loginForm.addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        alert('Login successful! (This is a demo)');
-                        if (loginPage) loginPage.style.display = 'none';});
-                }
-                
-                // Close login page when clicking outside
-                if (loginPage) {
-                    loginPage.addEventListener('click', function(e) {
-                        if (e.target === loginPage) {
-                            loginPage.style.display = 'none';
-                        }
-                    });
-                }
-            })
-            .catch(error => console.error('Error loading navigation:', error));
+      <script>
+  // ====== Load Navigation ====== //
+  fetch('/navigation.html')
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.text();
+    })
+    .then(html => {
+      document.getElementById('navigation-container').innerHTML = html;
+      initNavigation(); // Call setup function after load
+    })
+    .catch(error => {
+      console.error('Failed to load navigation:', error);
+      document.getElementById('navigation-container').innerHTML = `
+        <div style="background: #ffebee; color: #c62828; padding: 10px; border: 1px solid #ef9a9a;">
+          Navigation Error: <a href="/" style="color: #c62828;">Return Home</a>
+        </div>
+      `;
+    });
+
+  // ====== Navigation Setup ====== //
+  function initNavigation() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileSideMenu = document.getElementById('mobileSideMenu');
+    const overlay = document.getElementById('overlay');
+
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileSideMenu.classList.add('active');
+        overlay.classList.add('active');
+      });
+    }
+
+    // Close Mobile Menu
+    document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
+      mobileSideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // Mobile Dropdowns
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.currentTarget.parentElement.classList.toggle('active');
+      });
+    });
+
+    // Login Links (already handled via HTML href)
+  }
     </script>
 </body>
 </html>
