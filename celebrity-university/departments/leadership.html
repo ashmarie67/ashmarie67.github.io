@@ -118,7 +118,7 @@
 
     <script>
         // Load navigation
-        fetch('navigation.html')
+        fetch('../navigation.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navigation-container').innerHTML = data;
@@ -147,13 +147,11 @@
                         overlay.classList.remove('active');
                     });
                 }
-                
                 if (overlay) {
                     overlay.addEventListener('click', function() {
                         mobileSideMenu.classList.remove('active');
                         overlay.classList.remove('active');
-                    });
-                }
+                    });}
                 
                 // Mobile dropdown toggles
                 const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
@@ -184,10 +182,8 @@
                     loginForm.addEventListener('submit', function(e) {
                         e.preventDefault();
                         alert('Login successful! (This is a demo)');
-                        if (loginPage) loginPage.style.display = 'none';
-                    });
+                        if (loginPage) loginPage.style.display = 'none';});
                 }
-                
                 // Close login page when clicking outside
                 if (loginPage) {
                     loginPage.addEventListener('click', function(e) {
