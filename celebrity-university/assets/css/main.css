@@ -665,4 +665,13 @@ html {
   .login-btn {
     width: 100%;
   }
+}/* Navigation Error Fallback */
+.nav-error {
+  padding: 1rem;
+  background: #ffebee;
+  text-align: center;
+}
+.nav-error a {
+  color: #c62828;
+  padding: 0 1rem;
 }
