@@ -29,6 +29,20 @@
             position: relative;
         }
         
+        .back-arrow {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .back-arrow:hover {
+            transform: translateX(-3px);
+        }
+        
         .login-header {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -69,6 +83,11 @@
             border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .login-btn:hover {
+            background-color: #008c99;
         }
         
         .close-btn {
@@ -84,6 +103,11 @@
 </head>
 <body>
     <div class="login-container">
+        <!-- Back Arrow Button -->
+        <div class="back-arrow" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        
         <button class="close-btn" onclick="window.location.href='index.html'">&times;</button>
         
         <h2 class="login-header">Celebrity University Login</h2>
@@ -130,9 +154,18 @@
     </div>
 
     <script>
+        // Back arrow functionality
+        function goBack() {
+            if (document.referrer.includes(window.location.hostname)) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Login form handling
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Simple validation - replace with actual authentication
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
             
@@ -142,6 +175,11 @@
             } else {
                 alert('Please enter both username and password');
             }
+        });
+
+        // Close button alternative
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            window.location.href = 'index.html';
         });
     </script>
 </body>
