@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <link href="assets/css/main.css" rel="stylesheet">
 
     <div class="container">
         <div class="department-header" style="background: linear-gradient(135deg, #16a085, #1abc9c);">
@@ -45,6 +45,134 @@
             </div>
         </div>
     </div>
+     <script>
+        // Load navigation
+        fetch('navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-container').innerHTML = data;
+                
+                // Now initialize all the navigation functionality
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Filter functionality
+                    const filterButtons = document.querySelectorAll('.filter-btn');
+                    const programCards = document.querySelectorAll('.program-card');
+                    
+                    filterButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Update active button
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            const category = this.dataset.category;
+                            
+                            // Filter programs
+                            programCards.forEach(card => {
+                                if (category === 'all' || card.dataset.categories.includes(category)) {
+                                    card.style.display = 'block';
+                                } else {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                    
+                    // Login functionality
+                    const loginBtn = document.querySelector('.login-btn');
+                    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+                    const loginPage = document.getElementById('loginPage');
+                    const closeLogin = document.getElementById('closeLogin');
+                    const loginForm = document.getElementById('loginForm');
+                    
+                    // Show login page when clicking login buttons
+                    if (loginBtn) {
+                        loginBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            loginPage.style.display = 'block';
+                        });
+                    }
+                    
+                    if (mobileLoginBtn) {
+                        mobileLoginBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            loginPage.style.display = 'block';
+                        });
+                    }
+                    
+                    if (closeLogin) {
+                        closeLogin.addEventListener('click', function() {
+                            loginPage.style.display = 'none';
+                        });
+                    }
+                    
+                    if (loginForm) {
+                        loginForm.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            alert('Login successful! (This is a demo)');
+                            loginPage.style.display = 'none';
+                        });
+                    }
+                    
+                    // Close login page when clicking outside
+                    if (loginPage) {
+                        loginPage.addEventListener('click', function(e) {
+                            if (e.target === loginPage) {
+                                loginPage.style.display = 'none';
+                            }
+                        });
+                    }
+                    
+                    // Mobile menu functionality
+                    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                    const closeMobileMenu = document.getElementById('closeMobileMenu');
+                    const mobileSideMenu = document.getElementById('mobileSideMenu');
+                    const overlay = document.getElementById('overlay');
+                    
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.addEventListener('click', function() {
+                            mobileSideMenu.classList.add('active');
+                            overlay.classList.add('active');
+                        });
+                    }
+                    
+                    if (closeMobileMenu) {
+                        closeMobileMenu.addEventListener('click', function() {
+                            mobileSideMenu.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+                    }
+                    
+                    if (overlay) {
+                        overlay.addEventListener('click', function() {
+                            mobileSideMenu.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+                    }
+                    
+                    // Mobile dropdown toggles
+                    const mobileDropdowns = document.querySelectorAll('.mobile-dropdown-toggle');
+                    
+                    mobileDropdowns.forEach(toggle => {
+                        toggle.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const parent = this.parentElement;
+                            parent.classList.toggle('active');
+                        });
+                    });
+                    
+                    // Make "All Programs" link work as requested
+                    const allProgramsLinks = document.querySelectorAll('.dropdown-menu > li:first-child a');
+                    
+                    allProgramsLinks.forEach(link => {
+                        link.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            window.location.href = window.location.href.split('#')[0];
+                        });
+                    });
+                });
+            })
+            .catch(error => console.error('Error loading navigation:', error));
+    </script>
 
     <!-- Footer -->
 </body>
