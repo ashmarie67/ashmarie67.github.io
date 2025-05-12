@@ -6,6 +6,182 @@
     <title>School Gallery & Events</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Additional CSS for the enhanced features */
+        .video-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        
+        .video-player {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-video video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .video-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .video-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin: 0 1rem;
+        }
+        
+        .video-thumb {
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        
+        .video-thumb.active {
+            opacity: 1;
+            position: relative;
+        }
+        
+        .video-thumb.active::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #2c3e50;
+            border-radius: 50%;
+        }
+        
+        .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2c3e50;
+            padding: 0.5rem;
+        }
+        
+        .gallery-section {
+            overflow-x: auto;
+            padding: 1rem 0;
+            margin: 2rem 0;
+        }
+        
+        .gallery-grid {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            min-width: 250px;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+        
+        .modal-media {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .modal-caption {
+            color: white;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-item {
+                min-width: 200px;
+                height: 150px;
+            }
+            
+            .video-player {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Container -->
@@ -19,20 +195,24 @@
             <h2>Photo Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/300x200/?school,classroom" alt="Classroom activity">
-                    <div class="gallery-caption">Students in classroom</div>
+                    <img src="https://source.unsplash.com/random/600x400/?school,classroom" alt="Classroom activity">
+                    <div class="gallery-caption">Students engaged in classroom learning</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/300x200/?school,event" alt="School event">
-                    <div class="gallery-caption">Annual science fair</div>
+                    <img src="https://source.unsplash.com/random/600x400/?school,event" alt="School event">
+                    <div class="gallery-caption">Annual science fair exhibition</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/300x200/?school,sports" alt="Sports day">
-                    <div class="gallery-caption">Sports championship</div>
+                    <img src="https://source.unsplash.com/random/600x400/?school,sports" alt="Sports day">
+                    <div class="gallery-caption">Championship sports competition</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/300x200/?school,graduation" alt="Graduation">
-                    <div class="gallery-caption">Graduation ceremony</div>
+                    <img src="https://source.unsplash.com/random/600x400/?school,graduation" alt="Graduation">
+                    <div class="gallery-caption">Graduation ceremony 2023</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://source.unsplash.com/random/600x400/?school,library" alt="Library">
+                    <div class="gallery-caption">Students in the new library</div>
                 </div>
             </div>
         </section>
@@ -42,7 +222,7 @@
             <h2>Featured Videos</h2>
             <div class="video-player">
                 <div class="main-video">
-                    <video id="currentVideo" controls>
+                    <video id="currentVideo" controls autoplay>
                         <source src="assets/videos/sample1.mp4" type="video/mp4">
                         Your browser does not support videos.
                     </video>
@@ -52,18 +232,20 @@
                     <div class="video-tabs">
                         <div class="video-thumb active" data-video="assets/videos/sample1.mp4">
                             <img src="https://source.unsplash.com/random/120x80/?school,lecture" alt="Lecture">
-                            <span>Campus Tour</span>
                         </div>
                         <div class="video-thumb" data-video="assets/videos/sample2.mp4">
                             <img src="https://source.unsplash.com/random/120x80/?school,lab" alt="Lab">
-                            <span>Science Lab</span>
                         </div>
                         <div class="video-thumb" data-video="assets/videos/sample3.mp4">
                             <img src="https://source.unsplash.com/random/120x80/?school,sports" alt="Sports">
-                            <span>Sports Day</span>
                         </div>
                     </div>
                     <button class="arrow-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="video-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
                 </div>
             </div>
         </section>
@@ -114,6 +296,7 @@
         <span class="close-modal">&times;</span>
         <div class="modal-content">
             <img id="modalImage" src="" alt="" class="modal-media">
+            <div id="modalCaption" class="modal-caption"></div>
         </div>
     </div>
 
@@ -146,17 +329,20 @@
                 mobileMenuToggle.addEventListener('click', () => {
                     mobileSideMenu.classList.add('active');
                     overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
             }
 
             document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
                 mobileSideMenu.classList.remove('active');
                 overlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
 
             overlay?.addEventListener('click', () => {
                 mobileSideMenu.classList.remove('active');
                 overlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
         }
     </script>
@@ -167,16 +353,29 @@
         const galleryItems = document.querySelectorAll('.gallery-item img');
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeModal = document.querySelector('.close-modal');
         
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
                 modal.style.display = "block";
                 modalImg.src = item.src;
+                modalCaption.textContent = item.nextElementSibling.textContent;
+                document.body.style.overflow = 'hidden';
             });
         });
         
-        document.querySelector('.close-modal').addEventListener('click', () => {
+        closeModal.addEventListener('click', () => {
             modal.style.display = "none";
+            document.body.style.overflow = '';
+        });
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = '';
+            }
         });
         
         // Video Player Controls
@@ -184,27 +383,56 @@
         const currentVideo = document.getElementById('currentVideo');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.dot');
+        let currentVideoIndex = 0;
         
-        videoThumbs.forEach(thumb => {
+        // Function to update video player
+        function updateVideo(index) {
+            videoThumbs.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            currentVideoIndex = index;
+            videoThumbs[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentVideo.src = videoThumbs[index].dataset.video;
+            currentVideo.load();
+            currentVideo.play();
+        }
+        
+        // Thumbnail click handler
+        videoThumbs.forEach((thumb, index) => {
             thumb.addEventListener('click', () => {
-                videoThumbs.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                currentVideo.src = thumb.dataset.video;
-                currentVideo.load();
-                currentVideo.play();
+                updateVideo(index);
             });
         });
         
-        prevBtn.addEventListener('click', () => {
-            const activeIndex = Array.from(videoThumbs).findIndex(t => t.classList.contains('active'));
-            const prevIndex = (activeIndex - 1 + videoThumbs.length) % videoThumbs.length;
-            videoThumbs[prevIndex].click();
+        // Dot click handler
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateVideo(index);
+            });
         });
         
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            const newIndex = (currentVideoIndex - 1 + videoThumbs.length) % videoThumbs.length;
+            updateVideo(newIndex);
+        });
+        
+        // Next button
         nextBtn.addEventListener('click', () => {
-            const activeIndex = Array.from(videoThumbs).findIndex(t => t.classList.contains('active'));
-            const nextIndex = (activeIndex + 1) % videoThumbs.length;
-            videoThumbs[nextIndex].click();
+            const newIndex = (currentVideoIndex + 1) % videoThumbs.length;
+            updateVideo(newIndex);
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === "block") {
+                if (e.key === "Escape") {
+                    modal.style.display = "none";
+                    document.body.style.overflow = '';
+                }
+            }
         });
     </script>
 </body>
