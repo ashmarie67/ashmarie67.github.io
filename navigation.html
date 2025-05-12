@@ -1,3 +1,5 @@
+why's is my navigation.html not working across all pages
+
 <!-- Mobile Banner (visible only on mobile) -->
 <div class="mobile-banner">
     <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -5,7 +7,7 @@
     </button>
     <div class="mobile-banner-title">Celebrity<span>University</span></div>
     <!-- Fixed single login link -->
-    <a href="login.html" class="mobile-login">
+    <a href="/login.html" class="mobile-login">
         <i class="fas fa-user"></i>
     </a>
 </div>
@@ -19,23 +21,23 @@
             </button>
         </div>
         <ul class="mobile-nav">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/index.html">Home</a></li>
             
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropdown-toggle" id="mobileProgramsToggle">
                     Academic Programs <i class="fas fa-chevron-down"></i>
                 </a>
               <ul class="mobile-dropdown-menu" id="mobileProgramsMenu">
-                    <li><a href="index.html">All Programs</a></li>
+                    <li><a href="/index.html">All Programs</a></li>
                     <li class="departments-dropdown">
                             <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
                             <ul class="departments-dropdown-menu">
-                                <li><a href="/departments/arts-media.html">Performing Arts & Media</a></li>
-                                <li><a href="/departments/arts-design.html">Creative Arts & Design</a></li>
-                                <li><a href="/departments/business.html">Business & Entrepreneurship</a></li>
-                                <li><a href="/departments/communication.html">Communications & PR</a></li>
-                                <li><a href="/departments/health-wellness.html">Lifestyle & Wellness</a></li>
-                                <li><a href="/departments/leadership.html">Leadership & Social Impact</a></li>
+                                <li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
+                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
+                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
+                                <li><a href="departments/communication.html">Communications & PR</a></li>
+                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
+                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
                             </ul>
                          </li> 
                     <li><a href="#">Undergraduate</a></li>
@@ -44,8 +46,16 @@
                 </ul>
             </li>
             
-            <li><a href="media.html">Media</a></li>
-                
+            <li class="mobile-dropdown">
+                <a href="#" class="mobile-dropdown-toggle" id="mobileMediaToggle">
+                    Media <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="mobile-dropdown-menu" id="mobileMediaMenu">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Podcasts</a></li>
+                </ul>
+            </li>     
             <li class="mobile-dropdown">
                 <a href="#" class="mobile-dropdown-toggle" id="mobileNewsToggle">
                     News <i class="fas fa-chevron-down"></i>
@@ -70,7 +80,7 @@
             <a href="#" class="nav-logo">Celebrity<span>University</span></a>
             
             <ul class="main-nav">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/index.html">Home</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">Academic Programs <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
@@ -79,12 +89,12 @@
                         <li class="departments-dropdown">
                             <a href="#" class="departments-link">Departments <i class="fas fa-chevron-right" style="font-size: 0.8rem; margin-left: auto;"></i></a>
                             <ul class="departments-dropdown-menu">
-                                <li><a href="/departments/arts-media.html">Performing Arts & Media</a></li>
-                                <li><a href="/departments/arts-design.html">Creative Arts & Design</a></li>
-                                <li><a href="/departments/business.html">Business & Entrepreneurship</a></li>
-                                <li><a href="/departments/communication.html">Communications & PR</a></li>
-                                <li><a href="/departments/health-wellness.html">Lifestyle & Wellness</a></li>
-                                <li><a href="/departments/leadership.html">Leadership & Social Impact</a></li>
+                                <li><a href="departments/arts-media.html">Performing Arts & Media</a></li>
+                                <li><a href="departments/arts-design.html">Creative Arts & Design</a></li>
+                                <li><a href="departments/business.html">Business & Entrepreneurship</a></li>
+                                <li><a href="departments/communication.html">Communications & PR</a></li>
+                                <li><a href="health-wellness.html">Lifestyle & Wellness</a></li>
+                                <li><a href="leadership.html">Leadership & Social Impact</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Undergraduate</a></li>
@@ -93,7 +103,12 @@
                     </ul>
                 </li>
                 
-                <li><a href="index.html">Media</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Media <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.3rem;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Podcasts</a></li>
                     </ul>
                 </li>
                 
@@ -109,10 +124,9 @@
             </ul>
             <!-- Fixed Login Portal -->
         <div class="login-portal">
-            <a href="login.html" class="login-btn">
+            <a href="/login.html" class="login-btn">
                 <i class="fas fa-user"></i> Login
             </a>
         </div>
     </div>
 </div>
-        
