@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Gallery & Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>School Media Gallery</h1>
+        
+        <div class="gallery">
+            <!-- Gallery items will be added dynamically by JavaScript -->
+        </div>
+        
+        <h2>Upcoming Events</h2>
+        <div class="events-container">
+            <!-- Event cards will be added dynamically by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- The Modal/Lightbox -->
+    <div id="mediaModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-media" src="" alt="">
+            <video id="modalVideo" class="modal-media" controls style="display:none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
