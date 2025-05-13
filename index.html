@@ -5,223 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebrity University - Shaping Icons. Building Futures.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #8feff2;
-            --primary-dark: #5fd8dc;
-            --dark: #222;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --transition: all 0.3s ease;
-            --nav-height: 70px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: var(--light);
-            padding-top: var(--nav-height); /* Push content down by nav height */
-        }
-        
-        /* Navigation Styles */
-        #navigation-container {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: var(--nav-height);
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Hero Section */
-        .hero {
-            position: relative;
-            text-align: center;
-            color: white;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: calc(100vh - var(--nav-height));
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 0;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .hero h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 3rem auto;
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            position: relative;
-        }
-        
-        .about h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--dark);
-            position: relative;
-        }
-        
-        .about h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-        
-        .about p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray);
-        }
-        
-        /* Button Styles */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(143, 239, 242, 0.3);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .about {
-                padding: 2rem 1.5rem;
-                margin: 2rem 1.5rem;
-            }
-            
-            .hero {
-                height: calc(80vh - var(--nav-height));
-                min-height: 400px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            :root {
-                --nav-height: 60px;
-            }
-            
-            body {
-                padding-top: var(--nav-height);
-            }
-            
-            .about {
-                padding: 1.5rem 1rem;
-                margin: 1.5rem 1rem;
-            }
-            
-            .hero {
-                height: calc(70vh - var(--nav-height));
-                min-height: 300px;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .about h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-    <!-- Navigation Container - Fixed at Top -->
-    <div id="navigation-container">
-        <div style="color: white;">
-            Loading navigation...
-            <noscript>Enable JavaScript for navigation or <a href="/" style="color: var(--primary);">go home</a></noscript>
-        </div>
-    </div>
+    <!-- Navigation will be loaded here -->
+    <div id="navigation-container"></div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -247,77 +35,51 @@
     </footer>
 
     <script>
-        // Navigation loader
+        // Load navigation from external file
         function loadNavigation() {
-            const navContainer = document.getElementById('navigation-container');
-            const navPaths = [
-                '/navigation.html',
-                'navigation.html',
-                '../navigation.html'
-            ];
-
-            const loadAttempt = (path) => {
-                return fetch(path)
-                    .then(response => {
-                        if (!response.ok) throw new Error('Not found');
-                        return response.text();
-                    })
-                    .then(html => {
-                        navContainer.innerHTML = html;
-                        initNavigation();
-                        return true;
-                    });
-            };
-
-            navPaths.reduce((promise, path) => {
-                return promise.catch(() => loadAttempt(path));
-            }, Promise.reject())
-            .catch(error => {
-                console.error('Navigation loading failed:', error);
-                navContainer.innerHTML = `
-                    <div style="width: 100%; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
-                        <a href="/" style="color: var(--primary); text-decoration: none; font-weight: 600;">CELEBRITY UNIVERSITY</a>
-                        <div>
-                            <a href="/" style="color: white; text-decoration: none; margin: 0 15px;">Home</a>
-                            <a href="#about" style="color: white; text-decoration: none; margin: 0 15px;">About</a>
-                            <a href="#" style="color: white; text-decoration: none; margin: 0 15px;">Login</a>
-                        </div>
-                    </div>
-                `;
-            });
+            fetch('navigation.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Navigation not found');
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('navigation-container').innerHTML = html;
+                    initNavigation();
+                })
+                .catch(error => {
+                    console.error('Error loading navigation:', error);
+                    document.getElementById('navigation-container').innerHTML = `
+                        <header>
+                            <div class="logo">
+                                <h1 style="color: #8feff2;">CELEBRITY UNIVERSITY</h1>
+                            </div>
+                            <nav>
+                                <ul>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#">Programs</a></li>
+                                    <li><a href="#">Admissions</a></li>
+                                </ul>
+                            </nav>
+                        </header>
+                    `;
+                });
         }
 
+        // Initialize navigation functionality
         function initNavigation() {
-            // Mobile menu functionality
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mobileSideMenu = document.getElementById('mobileSideMenu');
-            const overlay = document.getElementById('overlay');
-
-            if (mobileMenuToggle) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    mobileSideMenu?.classList.add('active');
-                    overlay?.classList.add('active');
+            // Mobile menu toggle functionality
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
                 });
             }
-
-            document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
-                mobileSideMenu?.classList.remove('active');
-                overlay?.classList.remove('active');
-            });
-
-            overlay?.addEventListener('click', () => {
-                mobileSideMenu?.classList.remove('active');
-                overlay?.classList.remove('active');
-            });
-
-            document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.currentTarget.parentElement.classList.toggle('active');
-                });
-            });
         }
 
+        // Load navigation when page loads
         document.addEventListener('DOMContentLoaded', loadNavigation);
     </script>
 </body>
