@@ -791,3 +791,41 @@ html {
         transform: scale(1.03);
     }
 }
+/* University Photo Styles */
+.university-photo {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+    margin-top: 70px; /* Matches navigation height */
+}
+
+/* Navigation Styles */
+#navigation-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+/* Content spacing */
+.hero {
+    padding-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .university-photo {
+        max-height: 300px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .university-photo {
+        max-height: 200px;
+        margin-top: 50px;
+    }
+}
