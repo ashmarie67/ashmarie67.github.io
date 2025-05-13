@@ -41,52 +41,103 @@
     </footer>
 
     <script>
-        // Load navigation from external file
+      // ====== Load Navigation ====== //
         function loadNavigation() {
-            fetch('navigation.html')
-                .then(response => {
-                    if (!response.ok) throw new Error('Navigation not found');
-                    return response.text();
-                })
-                .then(html => {
-                    document.getElementById('navigation-container').innerHTML = html;
-                    initNavigation();
-                })
-                .catch(error => {
-                    console.error('Error loading navigation:', error);
-                    document.getElementById('navigation-container').innerHTML = `
-                        <header>
-                            <div class="logo">
-                                <h1 style="color: #8feff2;">CELEBRITY UNIVERSITY</h1>
-                            </div>
-                            <nav>
-                                <ul>
-                                    <li><a href="#home">Home</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#">Programs</a></li>
-                                    <li><a href="#">Admissions</a></li>
-                                </ul>
-                            </nav>
-                        </header>
-                    `;
-                });
-        }
+            const navContainer = document.getElementById('navigation-container');
+            const navPaths = [
+                '/navigation.html',        // GitHub Pages path
+                'navigation.html',         // Local development path
+                '../navigation.html'       // Alternative path
+            ];
 
-        // Initialize navigation functionality
+            const loadAttempt = (path) => {
+                return fetch(path)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Not found');
+                        return response.text();
+                    })
+                    .then(html => {
+                        navContainer.innerHTML = html;
+                        initNavigation();
+                        return true;
+                    });
+            };
+
+            // Try all possible paths
+            navPaths.reduce((promise, path) => {
+                return promise.catch(() => loadAttempt(path));
+            }, Promise.reject())
+            .catch(error => {
+                console.error('All navigation paths failed:', error);
+                navContainer.innerHTML = `
+                    <div class="nav-error">
+                        <a href="/" class="error-link">Home</a>
+                        <a href="/login.html" class="login-btn">Login</a>
+                    </div>
+                `;
+            }); }
+
+        // ====== Initialize Navigation ====== //
         function initNavigation() {
-            // Mobile menu toggle functionality
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-            
-            if (menuToggle && navMenu) {
-                menuToggle.addEventListener('click', () => {
-                    navMenu.classList.toggle('active');
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileSideMenu = document.getElementById('mobileSideMenu');
+            const overlay = document.getElementById('overlay');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileSideMenu?.classList.add('active');
+                    overlay?.classList.add('active');
                 });
             }
+
+            // Close handlers
+            document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
+                mobileSideMenu?.classList.remove('active');
+                overlay?.classList.remove('active');
+            });
+
+            overlay?.addEventListener('click', () => {
+                mobileSideMenu?.classList.remove('active');
+                overlay?.classList.remove('active');
+            });
+            // Mobile dropdowns
+            document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.currentTarget.parentElement.classList.toggle('active');
+                });
+            });
         }
 
-        // Load navigation when page loads
-        document.addEventListener('DOMContentLoaded', loadNavigation);
+        // ====== Program Filter Functionality ====== //
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const programCards = document.querySelectorAll('.program-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.dataset.category;
+                    
+                    programCards.forEach(card => {
+                        const cardCategories = card.dataset.categories.split(' ');
+                        
+                        if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+        // Start loading navigation
+        loadNavigation();
     </script>
 </body>
 </html>
