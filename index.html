@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity University - Shaping Icons. Building Futures.</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Include Navigation -->
+    <div id="navigation"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>CELEBRITY UNIVERSITY</h1>
+            <h2>"Shaping Icons. Building Futures."</h2>
+            <p>Welcome to Celebrity University — where ambition meets opportunity. We empower the next generation of leaders, creators, and innovators to shine on every stage — from academics to the world beyond. Your journey to excellence starts here.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Our School</h2>
+        <p>Celebrity University is a modern institution dedicated to cultivating excellence in education, creativity, and leadership. With a focus on innovation and real-world impact, we prepare students to thrive in competitive industries — from business and media to technology and the arts.</p>
+        <p>Our cutting-edge programs combine rigorous academics with practical experience, guided by industry leaders and accomplished faculty. At Celebrity University, we don't just teach skills—we foster the vision, confidence, and connections needed to excel in today's dynamic world.</p>
+        <p>Located in the heart of the city, our campus serves as a hub for creative collaboration and professional development, offering state-of-the-art facilities and unparalleled networking opportunities with industry pioneers.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Celebrity University. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Load navigation
+        fetch('navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation').innerHTML = data;
+                
+                // Mobile menu toggle
+                document.querySelector('.menu-toggle')?.addEventListener('click', function() {
+                    document.querySelector('nav ul').classList.toggle('active');
+                });
+
+                // Close menu when clicking on a link
+                document.querySelectorAll('nav ul li a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        document.querySelector('nav ul').classList.remove('active');
+                    });
+                });
+            });
+    </script>
+</body>
+</html>
