@@ -8,29 +8,41 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
         /* Temporary styles until main.css loads */
+        body {
+            margin: 0;
+            padding: 0;
+        }
         .university-photo {
             width: 100%;
             max-height: 500px;
             object-fit: cover;
             display: block;
+            margin-top: 70px; /* Space for fixed navigation */
+        }
+        #navigation-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
 <body>
-    <!-- University Photo at Top -->
+    <!-- Navigation Container - Fixed at Top -->
+    <div id="navigation-container">
+        <div style="padding: 15px; text-align: center; color: white;">
+            Loading navigation...
+            <noscript>Enable JavaScript for navigation or <a href="/" style="color: #8feff2;">go home</a></noscript>
+        </div>
+    </div>
+
+    <!-- University Photo - Positioned below navigation -->
     <img class="university-photo" 
          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
          alt="Celebrity University Campus">
 
-    <!-- Navigation Container -->
-    <div id="navigation-container">
-        <div style="background: #f0f0f0; padding: 10px; text-align: center;">
-            Loading navigation... 
-            <noscript>Enable JavaScript for navigation or <a href="/">go home</a></noscript>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
+    <!-- Rest of your content -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>CELEBRITY UNIVERSITY</h1>
@@ -40,7 +52,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <h2>About Our School</h2>
         <p>Celebrity University is a modern institution dedicated to cultivating excellence in education, creativity, and leadership. With a focus on innovation and real-world impact, we prepare students to thrive in competitive industries — from business and media to technology and the arts.</p>
@@ -48,14 +59,12 @@
         <p>Located in the heart of the city, our campus serves as a hub for creative collaboration and professional development, offering state-of-the-art facilities and unparalleled networking opportunities with industry pioneers.</p>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Celebrity University. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // ====== Load Navigation ====== //
+        // Navigation loader
         function loadNavigation() {
             const navContainer = document.getElementById('navigation-container');
             const navPaths = [
@@ -83,17 +92,16 @@
             .catch(error => {
                 console.error('Navigation loading failed:', error);
                 navContainer.innerHTML = `
-                    <div class="nav-error">
-                        <a href="/" class="error-link">Home</a>
-                        <a href="/login.html" class="login-btn">Login</a>
+                    <div style="padding: 15px; background: rgba(0,0,0,0.9);">
+                        <a href="/" style="color: #8feff2; text-decoration: none; margin-right: 20px;">Home</a>
+                        <a href="/login.html" style="color: #8feff2; text-decoration: none;">Login</a>
                     </div>
                 `;
             });
         }
 
-        // ====== Initialize Navigation ====== //
         function initNavigation() {
-            // Mobile Menu Toggle
+            // Mobile menu functionality
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const mobileSideMenu = document.getElementById('mobileSideMenu');
             const overlay = document.getElementById('overlay');
@@ -105,7 +113,6 @@
                 });
             }
 
-            // Close handlers
             document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
                 mobileSideMenu?.classList.remove('active');
                 overlay?.classList.remove('active');
@@ -116,7 +123,6 @@
                 overlay?.classList.remove('active');
             });
 
-            // Mobile dropdowns
             document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
                 toggle.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -125,7 +131,6 @@
             });
         }
 
-        // Start loading navigation
         document.addEventListener('DOMContentLoaded', loadNavigation);
     </script>
 </body>
