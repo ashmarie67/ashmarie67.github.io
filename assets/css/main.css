@@ -1084,8 +1084,9 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: white;
+    background-color: var(--secondary-5); /* Now matches desktop */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: white; /* Ensures text remains visible */
 }
 
 /* Adjust for mobile if needed */
