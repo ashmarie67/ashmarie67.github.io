@@ -992,7 +992,7 @@ body {
 
 /* ===== UNIVERSAL FOOTER STYLES ===== */
 .site-footer {
-  background: #1a1a1a;
+  background: var(--secondary-5);
   color: #e0e0e0;
   padding: 4rem 0 0;
   font-size: 0.95rem;
@@ -1030,7 +1030,7 @@ body {
   bottom: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  background: linear-gradient(90deg, #8feff2, #00a8b5);
   border-radius: 3px;
 }
 
