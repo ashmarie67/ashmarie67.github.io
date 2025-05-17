@@ -389,6 +389,12 @@
     color: white;
     white-space: nowrap;
 }
+        /* Place near top where you define banner colors */
+        .top-banner,
+        .mobile-banner,
+        .mobile-side-menu-header {
+            background-color: var(--secondary-5);
+        }
         
         .mobile-banner-title span {
             color: var(--primary-accent);
