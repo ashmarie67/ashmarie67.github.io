@@ -366,35 +366,36 @@
         .leadership .icon-container i { color: var(--secondary-5); }
         .leadership .tag { background-color: rgba(44, 62, 80, 0.1); color: var(--secondary-5); }
         
-        /* Mobile Banner */
-        .mobile-banner {
-            display: none;
-            background-color: var(--secondary-5);
-            color: white;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .mobile-banner-title {
+        /* Update mobile banner layout */
+.mobile-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--secondary-5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+/* Ensure menu button stays on left */
+.mobile-menu-toggle {
+    order: 1; /* Forces to left */
+    margin-right: auto; /* Pushes other items right */
+}
+
+.mobile-banner-title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-    white-space: nowrap;
+    width: max-content; /* Prevents title from affecting layout */
 }
-        /* Place near top where you define banner colors */
-        .top-banner,
-        .mobile-banner,
-        .mobile-side-menu-header {
-            background-color: var(--secondary-5);
-        }
+
+.mobile-login {
+    order: 3; /* Forces to right */
+    margin-left: auto; /* Pushes to far right */
+}
+
         
         .mobile-banner-title span {
             color: var(--primary-accent);
@@ -482,6 +483,8 @@
     padding-left: 1rem;
 }
 
+
+
 /* ===== BANNER COLORS ===== */
 .top-banner,
 .mobile-banner,
@@ -556,6 +559,28 @@
                 margin: 0;
             }
         }
+}
+/* Mobile dropdown styles */
+.mobile-dropdown-menu {
+    display: none;
+    padding-left: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    display: block;
+    max-height: 500px; /* Adjust based on your content */
+}
+
+/* Chevron animation */
+.mobile-dropdown-toggle i.fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-toggle i.fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 /* ... (continue with all shared styles) ... */
