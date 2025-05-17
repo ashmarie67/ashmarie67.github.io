@@ -7,6 +7,184 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Your custom CSS file -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Add these styles to your main.css or in a style tag */
+        
+        /* About Section Enhancements */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #222;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: #ff7e5f;
+            margin-bottom: 1rem;
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .about-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Testimonial Section */
+        .testimonial {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #222;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(255, 126, 95, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about h2, .testimonial h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
      <!-- Navigation Container (with error fallback) -->
@@ -30,9 +208,64 @@
     <!-- About Section -->
     <section class="about" id="about">
         <h2>About Our School</h2>
-        <p>Celebrity University is a modern institution dedicated to cultivating excellence in education, creativity, and leadership. With a focus on innovation and real-world impact, we prepare students to thrive in competitive industries — from business and media to technology and the arts.</p>
-        <p>Our cutting-edge programs combine rigorous academics with practical experience, guided by industry leaders and accomplished faculty. At Celebrity University, we don't just teach skills—we foster the vision, confidence, and connections needed to excel in today's dynamic world.</p>
-        <p>Located in the heart of the city, our campus serves as a hub for creative collaboration and professional development, offering state-of-the-art facilities and unparalleled networking opportunities with industry pioneers.</p>
+        <p>Celebrity University is a modern institution dedicated to cultivating excellence in education, creativity, and leadership. With a focus on innovation and real-world impact, we prepare students to thrive in competitive industries.</p>
+        
+        <div class="about-content">
+            <div class="about-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Academic Excellence</h3>
+                <p>Our cutting-edge programs combine rigorous academics with practical experience, guided by industry leaders and accomplished faculty.</p>
+            </div>
+            
+            <div class="about-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation Focus</h3>
+                <p>We don't just teach skills—we foster the vision, confidence, and connections needed to excel in today's dynamic world.</p>
+            </div>
+            
+            <div class="about-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Prime Location</h3>
+                <p>Our campus serves as a hub for creative collaboration and professional development, with state-of-the-art facilities and networking opportunities.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Graduation Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Industry Partners</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15:1</div>
+                <div class="stat-label">Student-Teacher Ratio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Career Placement</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-card">
+            <p class="testimonial-text">Celebrity University transformed my perspective and skillset. The hands-on approach and industry connections helped me launch my career before I even graduated.</p>
+            <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Student" class="author-img">
+                <div class="author-info">
+                    <h4>Alexandra Chen</h4>
+                    <p>Media & Communications, Class of 2022</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
