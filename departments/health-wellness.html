@@ -122,9 +122,26 @@
     </div>
 
     </div>
+ <!-- Footer will be injected here -->
+<div id="footer-container"></div>
 
-    
-    <script>
+<script>
+// Load footer content
+fetch('/footer.html')
+  .then(response => response.text())
+  .then(html => {
+    document.getElementById('footer-container').innerHTML = html;
+    // Update current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  })
+  .catch(error => {
+    console.error('Error loading footer:', error);
+    document.getElementById('footer-container').innerHTML = `
+      <footer style="text-align:center;padding:1rem;background:#111;color:#fff">
+        Footer failed to load. <a href="/" style="color:#ff7e5f">Return Home</a>
+      </footer>`;
+  });
+   
   // ====== Load Navigation ====== //
   function loadNavigation() {
     const navContainer = document.getElementById('navigation-container');
