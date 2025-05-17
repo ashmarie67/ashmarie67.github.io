@@ -381,10 +381,14 @@
         }
         
         .mobile-banner-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: white;
-        }
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    white-space: nowrap;
+}
         
         .mobile-banner-title span {
             color: var(--primary-accent);
@@ -462,10 +466,34 @@
             align-items: center;
         }
         
-        .mobile-dropdown-menu {
-            display: none;
-            padding-left: 1rem;
-        }
+        /* ===== DROPDOWN MENUS ===== */
+.departments-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 0 0 4px 4px;
+    z-index: 1001;
+    padding: 0.5rem 0;
+}
+
+/* Mobile version */
+.mobile-dropdown-menu .departments-dropdown-menu {
+    position: static;
+    width: auto;
+    box-shadow: none;
+    padding-left: 1rem;
+}
+
+/* ===== BANNER COLORS ===== */
+.top-banner,
+.mobile-banner,
+.mobile-side-menu-header {
+    background-color: var(--secondary-5);
+}
         
         .mobile-dropdown.active .mobile-dropdown-menu {
             display: block;
