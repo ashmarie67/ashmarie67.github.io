@@ -466,19 +466,7 @@
             align-items: center;
         }
         
-        /* ===== DROPDOWN MENUS ===== */
-.departments-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-radius: 0 0 4px 4px;
-    z-index: 1001;
-    padding: 0.5rem 0;
-}
+       
 
 /* Mobile version */
 .mobile-dropdown-menu .departments-dropdown-menu {
