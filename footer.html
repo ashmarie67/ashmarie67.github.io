@@ -1,0 +1,240 @@
+<!-- Universal Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/academics.html">Academic Programs</a></li>
+                <li><a href="/admissions.html">Admissions</a></li>
+                <li><a href="/media.html">Media Center</a></li>
+                <li><a href="/events.html">Events</a></li>
+                <li><a href="/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <ul class="footer-contact">
+                <li><i class="fas fa-map-marker-alt"></i> 123 Celebrity Blvd, Los Angeles, CA 90028</li>
+                <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                <li><i class="fas fa-envelope"></i> info@celebrityuniversity.edu</li>
+                <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</li>
+            </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+            <h3 class="footer-heading">Connect With Us</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <!-- Newsletter Signup -->
+            <div class="newsletter">
+                <h4>Stay Updated</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright & Legal -->
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p>&copy; <span id="current-year"></span> Celebrity University. All Rights Reserved.</p>
+            <div class="legal-links">
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/accessibility.html">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Add this CSS to your main.css file -->
+<style>
+    /* Footer Styles */
+    .site-footer {
+        background: #222;
+        color: #fff;
+        padding: 3rem 0 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+    
+    .footer-heading {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    }
+    
+    .footer-links li, .footer-contact li {
+        margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a, .footer-contact a {
+        color: #bbb;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover, .footer-contact a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .footer-contact i {
+        margin-right: 0.5rem;
+        color: #ff7e5f;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        transform: translateY(-3px);
+    }
+    
+    .newsletter h4 {
+        color: #fff;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        max-width: 300px;
+    }
+    
+   .newsletter-form input {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        border: none;
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+    }
+    
+    .newsletter-form input::placeholder {
+        color: #bbb;
+    }
+    
+    .newsletter-form button {
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        color: #fff;
+        border: none;
+        padding: 0 1rem;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+        opacity: 0.9;
+    }
+    
+    .footer-bottom {
+        background: #111;
+        padding: 1.5rem 0;
+        margin-top: 2rem;
+    }
+    
+    .footer-bottom-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        margin: 0.5rem 0;
+        color: #999;
+        font-size: 0.9rem;
+    }
+    
+    .legal-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .legal-links a {
+        color: #bbb;
+        font-size: 0.85rem;
+        transition: color 0.3s ease;
+    }
+    
+    .legal-links a:hover {
+        color: #fff;
+    }
+    
+    @media (min-width: 768px) {
+        .footer-bottom-content {
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+        }
+        
+        .legal-links {
+            margin-top: 0;
+        }
+    }
+</style>
+
+<!-- Add this script to update the current year automatically -->
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
