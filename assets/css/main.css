@@ -958,3 +958,34 @@ html {
         padding: 0.8rem 1.8rem;
     }
 }
+/* Add this to your existing CSS */
+body {
+    padding-top: 80px; /* Adjust this value to match your navigation height */
+}
+
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures nav stays above other content */
+    background: white; /* Or whatever your nav background color is */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow for better separation */
+}
+
+.mobile-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Adjust for mobile if needed */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Adjust for mobile banner height */
+    }
+}
