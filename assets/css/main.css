@@ -1706,3 +1706,163 @@ body {
             font-size: 1.5rem;
             cursor: pointer;
         }
+
+/* ===== MOBILE NAVIGATION LAYOUT FIX ===== */
+.mobile-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--secondary-5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Menu toggle on the left */
+.mobile-menu-toggle {
+    order: 1;
+    flex: 1;
+    text-align: left;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Logo in the center */
+.mobile-banner-title {
+    order: 2;
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.5rem;
+}
+
+.mobile-banner-title span {
+    color: var(--primary-accent);
+}
+
+/* Login icon on the right */
+.mobile-login {
+    order: 3;
+    flex: 1;
+    text-align: right;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ensure the navigation stays on top of other content */
+#navigation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Adjust body padding to account for fixed header */
+body {
+    padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+    /* Hide desktop navigation on mobile */
+    .top-banner {
+        display: none;
+    }
+    
+    /* Show mobile navigation */
+    .mobile-banner {
+        display: flex;
+    }
+    
+    /* Adjust content spacing */
+    .container {
+        padding-top: 1rem;
+    }
+}
+
+/* Mobile Side Menu Styles (keep existing styles) */
+.mobile-side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background-color: white;
+    z-index: 1100;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.mobile-side-menu.active {
+    left: 0;
+}
+
+.mobile-side-menu-header {
+    background-color: var(--secondary-5);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-mobile-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    padding: 1rem;
+}
+
+.mobile-nav li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    display: block;
+    padding: 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Overlay for when menu is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1050;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
