@@ -1530,6 +1530,11 @@ body {
     border-radius: 2px;
 }
 
+/* Add this after your existing .section-title styles */
+.section-title {
+    margin-bottom: 3rem; /* Increased from 2rem */
+}
+
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
     .stats-container,
@@ -1557,6 +1562,25 @@ body {
     .stats-container,
     .news-container {
         padding: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 2.5rem;
+    }
+    
+    .stats-container {
+        margin-bottom: 4rem !important;
+    }
+    
+    .news-container {
+        margin-top: 1.5rem !important;
+    }
+    
+    .section-divider {
+        margin: 3rem auto;
     }
 }
 
