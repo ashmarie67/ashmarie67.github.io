@@ -1388,7 +1388,7 @@ body {
 }
 
 
-/* ===== STATISTICS SECTION IMPROVEMENTS ===== */
+/* ===== STATISTICS SECTION FIXES ===== */
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1435,7 +1435,7 @@ body {
     margin-top: auto; /* Pushes title to bottom of card */
 }
 
-/* ===== NEWS SECTION IMPROVEMENTS ===== */
+/* ===== NEWS SECTION FIXES ===== */
 .news-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1443,6 +1443,7 @@ body {
     max-width: 1200px;
     margin: 0 auto 3rem;
     padding: 0 1.5rem;
+
 }
 
 .news-card {
@@ -1506,6 +1507,27 @@ body {
     transform: translateY(-2px);
 }
 
+/* ===== CENTERED SECTION HEADERS ===== */
+.section-title {
+    text-align: center;
+    margin: 2rem auto;
+    color: var(--text-dark);
+    font-size: 2rem;
+    position: relative;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-dark);
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+}
+
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
     .stats-container,
@@ -1533,6 +1555,34 @@ body {
     .stats-container,
     .news-container {
         padding: 0;
+    }
+}
+
+/* ===== FIX OVERLAPPING HEADER ISSUE ===== */
+body {
+    padding-top: 80px; /* Ensure content starts below fixed header */
+}
+
+
+/* ===== HEADER SPACING ADJUSTMENT ===== */
+.header-spacer {
+    height: 80px; /* Matches the body padding-top */
+}
+
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Adjust for mobile header height */
+    }
+    
+    .header-spacer {
+        height: 60px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin: 1.5rem auto;
     }
 }
 
