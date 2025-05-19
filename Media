@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">School Name</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <!-- Statistics Section -->
+        <h2 class="section-title">Our School at a Glance</h2>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" data-target="1250">0</div>
+                <div class="stat-title">Students Enrolled</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-title">Graduation Rate %</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="stat-number" data-target="85">0</div>
+                <div class="stat-title">Qualified Teachers</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-title">Academic Awards</div>
+            </div>
+        </div>
+        
+        <!-- News Section -->
+        <h2 class="section-title">Latest News & Updates</h2>
+        <div class="news-container">
+            <div class="news-card">
+                <div class="news-content">
+                    <h3 class="news-title">New STEM Lab Opening</h3>
+                    <span class="news-date">May 15, 2023</span>
+                    <p class="news-summary">Our school is proud to announce the opening of a state-of-the-art STEM laboratory, equipped with the latest technology to enhance our students' learning experience in science and technology.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-content">
+                    <h3 class="news-title">Annual Sports Day Results</h3>
+                    <span class="news-date">May 5, 2023</span>
+                    <p class="news-summary">Congratulations to all participants in our annual sports day! The event saw record participation with Blue House taking the championship trophy this year.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-content">
+                    <h3 class="news-title">Scholarship Opportunities</h3>
+                    <span class="news-date">April 28, 2023</span>
+                    <p class="news-summary">Applications are now open for the 2023-24 academic year scholarships. Several merit-based and need-based scholarships are available for eligible students.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animated counter for statistics
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // The lower the faster
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target + (counter.getAttribute('data-target').endsWith('00') ? '+' : '');
+                }
+            });
+        }
+        
+        // Run animation when page loads
+        window.addEventListener('load', () => {
+            animateCounters();
+        });
+    </script>
+</body>
+</html>
