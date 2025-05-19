@@ -1395,6 +1395,7 @@ body {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto 3rem;
+    margin-bottom: 5rem !important
     padding: 0 1.5rem;
 }
 
@@ -1433,6 +1434,7 @@ body {
     font-size: 1rem;
     color: var(--text-light);
     margin-top: auto; /* Pushes title to bottom of card */
+    margin-bottom: 3rem;
 }
 
 /* ===== NEWS SECTION FIXES ===== */
