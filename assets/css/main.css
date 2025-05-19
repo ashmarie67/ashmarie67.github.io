@@ -1866,3 +1866,74 @@ body {
 .overlay.active {
     display: block;
 }
+/* ===== FIXED MOBILE NAVIGATION OVERFLOW ===== */
+.mobile-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--secondary-5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    z-index: 1000;
+    overflow: hidden; /* Prevent any child elements from causing overflow */
+}
+
+/* Menu toggle button */
+.mobile-menu-toggle {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    margin-right: auto; /* Push to far left */
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0;
+    min-width: 24px; /* Ensure touch target size */
+}
+
+/* Centered logo/title */
+.mobile-banner-title {
+    flex: 1 1 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.5rem;
+    margin: 0 auto; /* Center with auto margins */
+    max-width: calc(100vw - 100px); /* Prevent overflow */
+}
+
+/* Login button */
+.mobile-login {
+    flex: 0 0 auto; /* Don't grow or shrink */
+    margin-left: auto; /* Push to far right */
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0;
+    min-width: 24px; /* Ensure touch target size */
+}
+
+/* Additional safety measures */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        width: 100%;
+    }
+    
+    .mobile-banner {
+        padding: 1rem 15px; /* Add horizontal padding */
+    }
+    
+    /* Ensure no element can cause horizontal overflow */
+    * {
+        max-width: 100%;
+    }
+}
