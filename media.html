@@ -122,46 +122,55 @@
             transform: translateY(0);
         }
         
-        /* Modal styles */
+        /* Enhanced Modal styles */
         .modal {
             display: none;
             position: fixed;
-            z-index: 100;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.9);
             overflow: auto;
+            animation: fadeIn 0.3s;
         }
         
         .modal-content {
             position: relative;
             margin: auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 800px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 90vh;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
         
         .modal-media {
-            max-width: 100%;
+            max-width: 90%;
             max-height: 80vh;
             object-fit: contain;
+            animation: zoomIn 0.3s;
         }
         
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 30px;
+            right: 40px;
             color: white;
-            font-size: 35px;
+            font-size: 40px;
             font-weight: bold;
             cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.2);
+            color: #ff7e5f;
         }
         
         .modal-caption {
@@ -169,6 +178,18 @@
             text-align: center;
             margin-top: 1rem;
             font-size: 1.2rem;
+            max-width: 80%;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
         }
         
         @media (max-width: 768px) {
@@ -179,6 +200,17 @@
             
             .video-player {
                 width: 100%;
+            }
+            
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+            }
+            
+            .modal-media {
+                max-width: 95%;
+                max-height: 70vh;
             }
         }
     </style>
@@ -300,25 +332,26 @@
         </div>
     </div>
 
-     <!-- Footer will be injected here -->
-<div id="footer-container"></div>
+    <!-- Footer will be injected here -->
+    <div id="footer-container"></div>
 
-<script>
-// Load footer content
-fetch('/footer.html')
-  .then(response => response.text())
-  .then(html => {
-    document.getElementById('footer-container').innerHTML = html;
-    // Update current year automatically
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  })
-  .catch(error => {
-    console.error('Error loading footer:', error);
-    document.getElementById('footer-container').innerHTML = `
-      <footer style="text-align:center;padding:1rem;background:#111;color:#fff">
-        Footer failed to load. <a href="/" style="color:#ff7e5f">Return Home</a>
-      </footer>`;
-  });
+    <script>
+        // Load footer content
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+                // Update current year automatically
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            })
+            .catch(error => {
+                console.error('Error loading footer:', error);
+                document.getElementById('footer-container').innerHTML = `
+                    <footer style="text-align:center;padding:1rem;background:#111;color:#fff">
+                        Footer failed to load. <a href="/" style="color:#ff7e5f">Return Home</a>
+                    </footer>`;
+            });
+
         // Load navigation
         fetch('./navigation.html')
             .then(response => response.text())
@@ -362,11 +395,8 @@ fetch('/footer.html')
                 document.body.style.overflow = '';
             });
         }
-    
 
-    <!-- Gallery and Video Script -->
-    
-        // Gallery Lightbox
+        // Enhanced Gallery Lightbox
         const galleryItems = document.querySelectorAll('.gallery-item img');
         const modal = document.getElementById('galleryModal');
         const modalImg = document.getElementById('modalImage');
@@ -377,17 +407,19 @@ fetch('/footer.html')
             item.addEventListener('click', () => {
                 modal.style.display = "block";
                 modalImg.src = item.src;
+                modalImg.alt = item.alt;
                 modalCaption.textContent = item.nextElementSibling.textContent;
                 document.body.style.overflow = 'hidden';
             });
         });
         
+        // Close modal when clicking X button
         closeModal.addEventListener('click', () => {
             modal.style.display = "none";
             document.body.style.overflow = '';
         });
         
-        // Close modal when clicking outside
+        // Close modal when clicking outside the image
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
@@ -395,6 +427,14 @@ fetch('/footer.html')
             }
         });
         
+        // Close modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && modal.style.display === "block") {
+                modal.style.display = "none";
+                document.body.style.overflow = '';
+            }
+        });
+
         // Video Player Controls
         const videoThumbs = document.querySelectorAll('.video-thumb');
         const currentVideo = document.getElementById('currentVideo');
@@ -440,16 +480,6 @@ fetch('/footer.html')
         nextBtn.addEventListener('click', () => {
             const newIndex = (currentVideoIndex + 1) % videoThumbs.length;
             updateVideo(newIndex);
-        });
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (modal.style.display === "block") {
-                if (e.key === "Escape") {
-                    modal.style.display = "none";
-                    document.body.style.overflow = '';
-                }
-            }
         });
     </script>
 </body>
