@@ -2079,32 +2079,3 @@ body {
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .social-links {
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            margin: 0 10px;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
