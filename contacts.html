@@ -7,38 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <!-- Your custom CSS file -->
     <link href="assets/css/main.css" rel="stylesheet">
-    <style>
-         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--text-light);
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-    </style>
 
      <!-- Navigation Container (with error fallback) -->
 <div id="navigation-container">
@@ -51,12 +19,18 @@
    
 </head>
 <body>
-
-    <section class="hero">
+<!-- Hero Section with Image Background -->
+<section class="hero" id="home">
+    <!-- Hero Image (with overlay) -->
+    <div class="hero-image"></div>
+    
+    <!-- Hero Content -->
+    <div class="hero-content">
         <h1>Connect With Celebrity University</h1>
         <p>We're here to answer your questions and help you navigate your educational journey. Reach out to our team or browse our staff directory.</p>
         <a href="#contact" class="btn">Contact Us</a>
-    </section>
+    </div>
+</section>
 
     <section id="contact" class="contact-section">
         <div class="container">
