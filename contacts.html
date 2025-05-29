@@ -69,11 +69,11 @@
             <div class="staff-grid">
                 <div class="staff-card">
                     <div class="staff-img">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jay Park">
+                        <img src="../assets/images/faculty/jay-park.jpeg" alt="Jay Park">
                     </div>
                     <div class="staff-info">
                         <h3>Jay Park</h3>
-                        <p class="role">Head of Performing Arts</p>
+                        <p class="role">Head of Business & Entrepreneurship</p>
                         <p class="email">j.park@celebrityuniversity.edu</p>
                     </div>
                 </div>
@@ -89,42 +89,52 @@
                 </div>
                 <div class="staff-card">
                     <div class="staff-img">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dongwook Lee">
+                        <img src="../assets/images/faculty/ldw.jpeg" alt="Dongwook Lee">
                     </div>
                     <div class="staff-info">
-                        <h3>Dongwook Lee</h3>
-                        <p class="role">Head of Film Studies</p>
+                        <h3>Dr. Dongwook Lee</h3>
+                        <p class="role">Head of Leadership & Social Impact</p>
                         <p class="email">d.lee@celebrityuniversity.edu</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-img">
-                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Ji-ho Woo">
+                        <img src="../assets/images/faculty/zico.jpeg" alt="Ji-ho Woo">
                     </div>
                     <div class="staff-info">
-                        <h3>Ji-ho Woo</h3>
-                        <p class="role">Head of Admissions</p>
+                        <h3>Prof. Ji-ho Woo</h3>
+                        <p class="role">Head of Performing Arts & Media</p>
                         <p class="email">j.woo@celebrityuniversity.edu</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-img">
-                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Ki-beom Kim">
+                        <img src="../assets/images/faculty/key.jpeg" alt="Ki-beom Kim">
                     </div>
                     <div class="staff-info">
-                        <h3>Ki-beom Kim</h3>
-                        <p class="role">Head of Student Affairs</p>
+                        <h3>Prof. Ki-beom Kim</h3>
+                        <p class="role">Head of Creative Arts & Design</p>
                         <p class="email">k.kim@celebrityuniversity.edu</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-img">
-                        <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Jongkook Kim">
+                        <img src="../assets/images/faculty/kjk.jpeg"  alt="Jongkook Kim">
                     </div>
                     <div class="staff-info">
-                        <h3>Jongkook Kim</h3>
-                        <p class="role">Head of Athletics</p>
+                        <h3>Dr. Jongkook Kim</h3>
+                        <p class="role">Head of Lifestyle & Wellness</p>
                         <p class="email">j.kim@celebrityuniversity.edu</p>
+                    </div>
+                </div>
+                 <div class="staff-card">
+                    <div class="staff-img">
+                        <img src="../assets/images/faculty/tukutz.jpeg"  alt="Jeongsik Kim">
+                    </div>
+                    <div class="staff-info">
+                        <h3>Dr. Jongkook Kim</h3>
+                        <p class="role">Prof. Jeongsik "Justin" Kim</p>
+                        <p class="email">js.kim@celebrityuniversity.edu</p>
                     </div>
                 </div>
             </div>
@@ -138,21 +148,96 @@
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container footer-content">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p>&copy; 2023 Celebrity University. All rights reserved.</p>
-        </div>
-    </footer>
+ <!-- Footer will be injected here -->
+<div id="footer-container"></div>
 
     <script>
+        // Load footer content
+fetch('/footer.html')
+  .then(response => response.text())
+  .then(html => {
+    document.getElementById('footer-container').innerHTML = html;
+    // Update current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  })
+  .catch(error => {
+    console.error('Error loading footer:', error);
+    document.getElementById('footer-container').innerHTML = `
+      <footer style="text-align:center;padding:1rem;background:#111;color:#fff">       
+        Footer failed to load. <a href="/" style="color:#ff7e5f">Return Home</a>
+      </footer>`;
+  });
+  // ====== Load Navigation ====== //
+  function loadNavigation() {
+    const navContainer = document.getElementById('navigation-container');
+    const navPaths = [
+      '/navigation.html',        // GitHub Pages path
+      'navigation.html',         // Local development path
+      '../navigation.html'       // Alternative path
+    ];
+
+    const loadAttempt = (path) => {
+      return fetch(path)
+        .then(response => {
+          if (!response.ok) throw new Error('Not found');
+          return response.text();
+        })
+        .then(html => {
+          navContainer.innerHTML = html;
+          initNavigation();
+          return true;
+        });
+    };
+
+    // Try all possible paths
+    navPaths.reduce((promise, path) => {
+      return promise.catch(() => loadAttempt(path));
+    }, Promise.reject())
+    .catch(error => {
+      console.error('All navigation paths failed:', error);
+      navContainer.innerHTML = `
+        <div class="nav-error">
+          <a href="/" class="error-link">Home</a>
+          <a href="/login.html" class="login-btn">Login</a>
+        </div>
+      `;   });
+  }
+  // ====== Initialize Navigation ====== //
+  function initNavigation() {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileSideMenu = document.getElementById('mobileSideMenu');
+    const overlay = document.getElementById('overlay');
+
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileSideMenu?.classList.add('active');
+        overlay?.classList.add('active');
+      });
+    }
+
+    // Close handlers
+    document.getElementById('closeMobileMenu')?.addEventListener('click', () => {
+      mobileSideMenu?.classList.remove('active');
+      overlay?.classList.remove('active');
+    });
+
+    overlay?.addEventListener('click', () => {
+      mobileSideMenu?.classList.remove('active');
+      overlay?.classList.remove('active');
+    });
+
+    // Mobile dropdowns
+    document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.currentTarget.parentElement.classList.toggle('active');
+      });
+    });
+  }
+  // Start loading navigation
+  loadNavigation();
+        
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
